@@ -12,84 +12,283 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-    <img src="hsd-logo-white.png" alt="HSD Logo" height="40" class="me-2"></a>
+                <img src="hsd-logo-white.png" alt="HSD Logo" height="40" class="me-2">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="#bu-hafta">Bülten</a>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#bu-hafta">Bülten</a></li>
                     <li class="nav-item"><a class="nav-link" href="#duyurular">Duyurular</a></li>
                     <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#ekibimiz">Ekibimiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
                     <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="calismalarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Çalışmalarımız</a>
-    <ul class="dropdown-menu" aria-labelledby="calismalarDropdown">
-        <li><a class="dropdown-item" href="projeler.html">Projelerimiz</a></li>
-        <li><a class="dropdown-item" href="blog.html">Blog Yazılarımız</a></li>
-        <li><a class="dropdown-item" href="etkinlikler.html">Etkinliklerimiz</a></li>
-    </ul>
-</li>
-
+                        <a class="nav-link dropdown-toggle" href="#" id="calismalarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Çalışmalarımız</a>
+                        <ul class="dropdown-menu" aria-labelledby="calismalarDropdown">
+                            <li><a class="dropdown-item" href="projeler.html">Projelerimiz</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog Yazılarımız</a></li>
+                            <li><a class="dropdown-item" href="etkinlikler.html">Etkinliklerimiz</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+            <a href="javascript:void(0)" id="dark-mode-toggle" class="nav-link px-3">
+                <i class="fas fa-moon"></i>
+            </a>
+        </li>
                 </ul>
+                <a href="https://www.gelisim.edu.tr" target="_blank">
+                    <img src="igu.png" alt="IGU Logo" height="40" class="ms-3 me-3">
+                </a>
+                <button id="darkModeBtn" class="btn ms-2" style="background:none; border:none; font-size:1.4rem; cursor:pointer;">🌙</button>
             </div>
         </div>
     </nav>
 
-<header class="main-hero bg-primary text-white text-center">
-    <div class="container">
-        <h1>HSD Gelişim'e Hoş Geldiniz</h1>
-        <p class="lead">Geleceği birlikte inşa ediyoruz.</p>
-    </div>
-</header>
-
-
-<section id="bu-hafta" class="py-5 bg-light text-dark border-bottom">
-    <div class="container">
-        <h2 class="text-center mb-4">HSD Bülten</h2>
-        <div class="row">
-            <div class="col-12 text-center">
-                <p>Haftalık bülten, Medium yazıları ve öne çıkan etkinlikler.</p>
-                </div>
+    <header class="main-hero bg-primary text-white text-center">
+        <div class="container">
+            <h1>HSD Gelişim'e Hoş Geldiniz</h1>
+            <p class="lead">Geleceği birlikte inşa ediyoruz.</p>
         </div>
-    </div>
-</section>
+    </header>
 
     <main>
-    <section id="duyurular" class="bg-white">
-        <div class="container">
-            <h2 class="text-center mb-4">Duyurular</h2>
-            <div class="placeholder-area" style="min-height: 300px; background: #f8f9fa; border: 2px dashed #dee2e6; display: flex; align-items: center; justify-content: center;">
-                <p class="text-muted">Duyuru kartları bu alana eklenecektir.</p>
-            </div>
-            </div>
-    </section>
 
-    <section id="hakkimizda" class="bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Hakkımızda</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="lead">HSD Gelişim topluluğunun vizyonu, misyonu ve hikayesi burada yer alacak.</p>
+        <section id="bu-hafta" class="py-5 bg-light text-dark border-bottom">
+            <div class="container">
+                <h2 class="text-center mb-4">HSD Bülten</h2>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Haftalık bülten, Medium yazıları ve öne çıkan etkinlikler.</p>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section id="duyurular" class="bg-white">
+            <div class="container">
+                <h2 class="text-center mb-4">Duyurular</h2>
+                <div class="placeholder-area">
+                    <p class="text-muted">Duyuru kartları bu alana eklenecektir.</p>
+                </div>
             </div>
-    </section>
+        </section>
 
-    <section id="ekibimiz" class="bg-white">
-        <div class="container">
-            <h2 class="text-center mb-4">Ekibimiz</h2>
-            <div class="row text-center">
-                <p class="text-muted">Komite başkanları ve yönetim ekibi kartları buraya gelecek.</p>
+        <!-- ETKİNLİK FOTOĞRAFLARI -->
+        <section id="etkinlik-fotograflari" class="bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Etkinlik Fotoğrafları</h2>
+                <div class="row g-3">
+                    <div class="col-6 col-md-4">
+                        <img src="etkinlik1.jpg" alt="Etkinlik 1" class="lightbox-trigger img-fluid rounded w-100" data-caption="Etkinlik Adı - Tarih">
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <img src="etkinlik2.jpg" alt="Etkinlik 2" class="lightbox-trigger img-fluid rounded w-100" data-caption="Etkinlik Adı - Tarih">
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <img src="etkinlik3.jpg" alt="Etkinlik 3" class="lightbox-trigger img-fluid rounded w-100" data-caption="Etkinlik Adı - Tarih">
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- HAKKIMIZDA -->
+        <section id="hakkimizda" class="bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Hakkımızda</h2>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <h3 class="hakkimizda-baslik">Biz Kimiz?</h3>
+                        <p class="hakkimizda-metin">HSD Gelişim, üniversite öğrencilerini teknoloji, yazılım ve inovasyon alanlarında bir araya getiren aktif bir topluluktur. Birlikte öğrenir, üretir ve büyürüz.</p>
+                        <p class="hakkimizda-metin">Misyonumuz; üyelerimize mentorluk, etkinlik ve projeler aracılığıyla kariyer yollarında rehberlik etmek ve güçlü bir öğrenci ekosistemi oluşturmaktır.</p>
+                        <div class="hakkimizda-etiketler mt-4">
+                            <span class="hsd-etiket">Yazılım</span>
+                            <span class="hsd-etiket">İnovasyon</span>
+                            <span class="hsd-etiket">Mentorluk</span>
+                            <span class="hsd-etiket">Topluluk</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3 text-center">
+                            <div class="col-6">
+                                <div class="stat-kart">
+                                    <span class="stat-sayi">150+</span>
+                                    <span class="stat-etiket">Üye</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-kart">
+                                    <span class="stat-sayi">30+</span>
+                                    <span class="stat-etiket">Etkinlik</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-kart">
+                                    <span class="stat-sayi">20+</span>
+                                    <span class="stat-etiket">Proje</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-kart">
+                                    <span class="stat-sayi">5+</span>
+                                    <span class="stat-etiket">Yıl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </section>
+        </section>
 
-</main>
+        <!-- EKİBİMİZ -->
+        <section id="ekibimiz" class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-2">Ekibimiz</h2>
+        <p class="text-center text-muted mb-5">Topluluğumuzu yöneten harika insanlar</p>
 
+        <div class="ekip-grup-baslik">
+            <span class="ekip-grup-cizgi"></span>
+            <span class="ekip-grup-label elci-label">Elçi</span>
+            <span class="ekip-grup-cizgi"></span>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-8 col-sm-5 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--elci">
+                    <div class="ekip-rozet">★</div>
+                    <div class="ekip-avatar-wrap ekip-avatar-wrap--elci">
+                        <img src="nurgul.jpeg" alt="Elçi" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Nurgül Yıldız</h5>
+                    <p class="ekip-rol ekip-rol--elci">Elçi</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="ekip-grup-baslik">
+            <span class="ekip-grup-cizgi"></span>
+            <span class="ekip-grup-label yardimci-label">Elçi Yardımcıları</span>
+            <span class="ekip-grup-cizgi"></span>
+        </div>
+        <div class="row g-4 justify-content-center mb-5">
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--yardimci">
+                    <div class="ekip-rozet">★</div>
+                    <div class="ekip-avatar-wrap">
+                        <img src="furkanerden.jpeg" alt="Elçi Yardımcısı" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Furkan Erden</h5>
+                    <p class="ekip-rol ekip-rol--yardimci">Elçi Yardımcısı</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--yardimci">
+                    <div class="ekip-rozet">★</div>
+                    <div class="ekip-avatar-wrap">
+                        <img src="irmak.jpeg" alt="Elçi Yardımcısı" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Irmak Gündüz</h5>
+                    <p class="ekip-rol ekip-rol--yardimci">Elçi Yardımcısı</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="ekip-grup-baslik">
+            <span class="ekip-grup-cizgi"></span>
+            <span class="ekip-grup-label baskanlari-label">Kulüp Başkanları</span>
+            <span class="ekip-grup-cizgi"></span>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--baskan">
+                    <div class="ekip-avatar-wrap">
+                        <img src="alp.jpeg" alt="Başkan 1" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Ali Alp Kocaoğlu</h5>
+                    <p class="ekip-rol ekip-rol--baskan">Web Sitesi Proje Lideri</p>
+                    <span class="ekip-kulup-adi">Kulüp 1</span>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--baskan">
+                    <div class="ekip-avatar-wrap">
+                        <img src="eren.jpeg" alt="Başkan 2" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Eren Baksoy</h5>
+                    <p class="ekip-rol ekip-rol--baskan">Oyun Proje Lideri</p>
+                    <span class="ekip-kulup-adi">Kulüp 2</span>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--baskan">
+                    <div class="ekip-avatar-wrap">
+                        <img src="yaren.jpeg" alt="Başkan 3" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Yaren Timur</h5>
+                    <p class="ekip-rol ekip-rol--baskan">Sosyal Medya ve Komite Lideri</p>
+                    <span class="ekip-kulup-adi">Kulüp 3</span>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="ekip-kart ekip-kart--baskan">
+                    <div class="ekip-avatar-wrap">
+                        <img src="damla.jpeg" alt="Başkan 4" class="ekip-avatar">
+                    </div>
+                    <h5 class="ekip-isim">Etkinlik ve Organizatör Lideri</h5>
+                    <p class="ekip-rol ekip-rol--baskan">Başkan</p>
+                    <span class="ekip-kulup-adi">Kulüp 4</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- İLETİŞİM -->
+        <section id="iletisim" class="bg-white">
+            <div class="container">
+                <h2 class="text-center mb-4">İletişim</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <form id="iletisimForm" novalidate>
+                            <div class="mb-3">
+                                <label for="adSoyad" class="form-label">Ad Soyad</label>
+                                <input type="text" class="form-control" id="adSoyad" placeholder="Adınız Soyadınız">
+                                <div class="invalid-feedback" id="adSoyadHata"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-posta Adresi</label>
+                                <input type="email" class="form-control" id="email" placeholder="ornek@mail.com">
+                                <div class="invalid-feedback" id="emailHata"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="konu" class="form-label">Konu Başlığı</label>
+                                <input type="text" class="form-control" id="konu" placeholder="Konu başlığınız">
+                                <div class="invalid-feedback" id="konuHata"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesaj" class="form-label">Mesaj</label>
+                                <textarea class="form-control" id="mesaj" rows="5" placeholder="Mesajınızı buraya yazın..."></textarea>
+                                <div class="invalid-feedback" id="mesajHata"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <img src="" alt="Lightbox Görseli" id="lightbox-img" class="lightbox-img">
+        <button class="lightbox-next" id="lightbox-next">&#10095;</button>
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
