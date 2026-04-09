@@ -1,4 +1,8 @@
 /* ===== GENEL SAYFA AYARLARI ===== */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -36,9 +40,8 @@ section h2::after {
 }
 
 .navbar-brand img {
-    height: 60px !important;
+    height: 40px;
     width: auto;
-    transition: transform 0.3s ease;
 }
 
 /* Ana başlığın olduğu mavi alanı (main-hero) karanlık yapar */
@@ -479,4 +482,41 @@ body.dark-mode .blog-medium {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+/* ===== TAILWIND DARK MODE ===== */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode section {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h5 {
+    color: #ffffff !important;
+}
+
+body.dark-mode p,
+body.dark-mode p span,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 { color: #cbd5e0 !important; }
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-gray-100 {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #2d333b !important;
+    color: #ffffff !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode label {
+    color: #ffffff !important;
 }
