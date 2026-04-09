@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
-    // HTML'deki id="darkModeBtn" ile buradaki isim aynı olmalı!
-    const darkBtn = document.getElementById("darkModeBtn"); 
+
+    // ===== DARK MODE =====
+    const darkBtn = document.getElementById("darkModeBtn");
     const body = document.body;
 
-    // Sayfa yüklendiğinde hafızadaki temayı kontrol et
     if (localStorage.getItem("tema") === "dark") {
         body.classList.add("dark-mode");
-        if (darkBtn) darkBtn.textContent = "☀️"; 
+        if (darkBtn) darkBtn.textContent = "☀️";
     } else {
         if (darkBtn) darkBtn.textContent = "🌙";
     }
@@ -15,9 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (darkBtn) {
         darkBtn.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
-            
             if (body.classList.contains("dark-mode")) {
-                darkBtn.textContent = "☀️"; 
+                darkBtn.textContent = "☀️";
                 localStorage.setItem("tema", "dark");
             } else {
                 darkBtn.textContent = "🌙";
@@ -25,11 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    
-    // ... Diğer form ve lightbox kodların aşağıda devam etsin
-});
 
-    // ===== FORM VALIDATION (GELİŞMİŞ) =====
+    // ===== MOBİL MENÜ =====
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    }
+
+    // ===== FORM VALIDATION =====
     const iletisimForm = document.getElementById("iletisimForm");
     if (iletisimForm) {
         iletisimForm.addEventListener("submit", function (e) {
@@ -55,26 +59,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 hataGoster(input, hata, "Geçerli bir e-posta adresi giriniz!");
                 gecerli = false;
             } else {
-                input.classList.remove("is-invalid");
-                input.classList.add("is-valid");
-                if (hata) hata.textContent = "";
+                input.classList.remove("border-red-500");
+                input.classList.add("border-green-500");
+                if (hata) {
+                    hata.textContent = "";
+                    hata.classList.add("hidden");
+                }
             }
         });
 
         if (gecerli) {
             alert("Mesajınız başarıyla gönderildi! 🎉");
             iletisimForm.reset();
-            alanlar.forEach(id => document.getElementById(id).classList.remove("is-valid"));
+            alanlar.forEach(id => document.getElementById(id).classList.remove("border-green-500"));
         }
     }
 
     function hataGoster(input, hata, mesaj) {
-        input.classList.remove("is-valid");
-        input.classList.add("is-invalid");
-        if (hata) hata.textContent = mesaj;
+        input.classList.add("border-red-500");
+        input.classList.remove("border-gray-300");
+        if (hata) {
+            hata.textContent = mesaj;
+            hata.classList.remove("hidden");
+        }
     }
 
-    // ===== LIGHTBOX (GELİŞMİŞ GALERİ) =====
+    // ===== LIGHTBOX =====
     const overlay = document.getElementById("lightbox-overlay");
     const lightboxImg = document.getElementById("lightbox-img");
     const caption = document.getElementById("lightbox-caption");
@@ -117,13 +127,31 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nextBtn) nextBtn.addEventListener("click", sonraki);
     if (prevBtn) prevBtn.addEventListener("click", onceki);
 
-    overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) lightboxKapat();
-    });
+    if (overlay) {
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) lightboxKapat();
+        });
+    }
 
     document.addEventListener("keydown", (e) => {
-        if (!overlay.classList.contains("aktif")) return;
+        if (!overlay || !overlay.classList.contains("aktif")) return;
         if (e.key === "Escape") lightboxKapat();
         if (e.key === "ArrowRight") sonraki();
         if (e.key === "ArrowLeft") onceki();
     });
+
+});
+
+const darkBtnMobile = document.getElementById("darkModeBtnMobile");
+if (darkBtnMobile) {
+    // Başlangıç ikonunu ayarla
+    darkBtnMobile.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    
+    darkBtnMobile.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const isDark = body.classList.contains("dark-mode");
+        darkBtnMobile.textContent = isDark ? "☀️" : "🌙";
+        if (darkBtn) darkBtn.textContent = isDark ? "☀️" : "🌙";
+        localStorage.setItem("tema", isDark ? "dark" : "light");
+    });
+}
