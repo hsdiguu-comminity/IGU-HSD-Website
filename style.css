@@ -520,3 +520,55 @@ body.dark-mode textarea {
 body.dark-mode label {
     color: #ffffff !important;
 }
+/* Gizli kart */
+
+.duyuru-kart.gizli {
+
+    display: none;
+
+}
+ 
+/* Aktif buton */
+
+.filtre-btn.aktif {
+
+    background-color: #04067c !important;
+
+    color: #ffffff !important;
+
+    border-color: #04067c !important;
+
+}
+ 
+/* Dark mode butonlar */
+
+body.dark-mode .filtre-btn {
+
+    background-color: #1e2530;
+
+    color: #cbd5e0;
+
+    border-color: #444c56;
+
+}
+
+body.dark-mode .filtre-btn.aktif {
+
+    background-color: #04067c !important;
+
+    color: #ffffff !important;
+
+    border-color: #7eb3ff !important;
+
+}
+ 
+/* Dark mode kartlar */
+
+body.dark-mode .duyuru-kart {
+
+    background-color: #1e2530 !important;
+
+    border-color: #2d3748 !important;
+
+}
+ 
