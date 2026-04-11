@@ -95,11 +95,72 @@
     <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-4">Duyurular</h2>
         <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded"></div>
-        <div class="min-h-64 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center">
-            <p class="text-gray-400">Duyuru kartları bu alana eklenecektir.</p>
         </div>
     </div>
 </section>
+
+<!-- Filtre Butonları -->
+<div class="flex flex-wrap gap-2 mb-6">
+<button class="filtre-btn aktif px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="tumu">Tümü</button>
+<button class="filtre-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="etkinlik">Etkinlik</button>
+<button class="filtre-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="duyuru">Duyuru</button>
+<button class="filtre-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="egitim">Eğitim</button>
+<button class="filtre-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="proje">Proje</button>
+</div>
+ 
+<!-- Duyuru Kartları -->
+<div id="duyuru-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+ 
+    <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="etkinlik">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-800">Etkinlik</span>
+<span class="text-xs text-gray-400">10 Nis 2025</span>
+</div>
+<p class="font-semibold text-sm text-gray-800 mb-1">Yapay Zeka Hackathon'u Başlıyor</p>
+<p class="text-sm text-gray-500">48 saatlik yapay zeka odaklı hackathon etkinliğimize katılmak için kayıt olun.</p>
+</div>
+ 
+    <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="duyuru">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-800">Duyuru</span>
+<span class="text-xs text-gray-400">8 Nis 2025</span>
+</div>
+<p class="font-semibold text-sm text-gray-800 mb-1">Yeni Üye Başvuruları Açıldı</p>
+<p class="text-sm text-gray-500">2025-2026 dönemi için HSD Gelişim üye başvuruları başladı.</p>
+</div>
+ 
+    <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="egitim">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">Eğitim</span>
+<span class="text-xs text-gray-400">5 Nis 2025</span>
+</div>
+<p class="font-semibold text-sm text-gray-800 mb-1">Python ile Veri Bilimi Workshop</p>
+<p class="text-sm text-gray-500">Pandas, matplotlib ve sklearn ile uygulamalı eğitim.</p>
+</div>
+ 
+    <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="proje">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-100 text-pink-800">Proje</span>
+<span class="text-xs text-gray-400">2 Nis 2025</span>
+</div>
+<p class="font-semibold text-sm text-gray-800 mb-1">Web Sitesi Projesi Ekibi Aramıyor</p>
+<p class="text-sm text-gray-500">Frontend ve backend geliştirici arayışındayız. Başvurular 15 Nisan'a kadar açık.</p>
+</div>
+ 
+    <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="etkinlik">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-800">Etkinlik</span>
+<span class="text-xs text-gray-400">1 Nis 2025</span>
+</div>
+<p class="font-semibold text-sm text-gray-800 mb-1">Kariyer Günü 2025</p>
+<p class="text-sm text-gray-500">Sektör profesyonelleriyle tanışma ve networking etkinliği.</p>
+</div>
+ 
+</div>
+ 
+<p id="bos-mesaj" class="hidden text-center py-8 text-gray-400 text-sm">
+    Bu kategoride henüz duyuru yok.
+</p>
 
        <!-- BLOG -->
 <section id="blog" class="py-20 bg-gray-100 scroll-mt-20">
