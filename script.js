@@ -1,16 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+    // ===== DUYURU FİLTRELEME =====
+    const filtreButonlar = document.querySelectorAll('.filtre-btn');
+    const duyuruKartlar = document.querySelectorAll('.duyuru-kart');
+    const bosMesaj = document.getElementById('bos-mesaj');
+ 
+    filtreButonlar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Aktif sınıfı taşı
+            filtreButonlar.forEach(b => b.classList.remove('aktif'));
+            btn.classList.add('aktif');
+ 
+            const seciliKategori = btn.dataset.kategori;
+            let gorunenSayisi = 0;
+ 
+            // Kartları göster/gizle
+            duyuruKartlar.forEach(kart => {
+                const eslesme = seciliKategori === 'tumu'
+                                || kart.dataset.kategori === seciliKategori;
+                kart.classList.toggle('gizli', !eslesme);
+                if (eslesme) gorunenSayisi++;
+            });
+ 
+            // Hiç kart yoksa mesaj göster
+            bosMesaj.style.display = gorunenSayisi === 0 ? 'block' : 'none';
+        });
+    });
+   
+ 
+ 
     // ===== DARK MODE =====
     const darkBtn = document.getElementById("darkModeBtn");
     const body = document.body;
-
+ 
     if (localStorage.getItem("tema") === "dark") {
         body.classList.add("dark-mode");
         if (darkBtn) darkBtn.textContent = "☀️";
     } else {
         if (darkBtn) darkBtn.textContent = "🌙";
     }
-
+ 
     if (darkBtn) {
         darkBtn.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
@@ -23,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
+ 
     // ===== MOBİL MENÜ =====
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
@@ -32,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mobileMenu.classList.toggle("hidden");
         });
     }
-
+ 
     // ===== FORM VALIDATION =====
     const iletisimForm = document.getElementById("iletisimForm");
     if (iletisimForm) {
@@ -41,17 +69,17 @@ document.addEventListener("DOMContentLoaded", function () {
             formKontrol();
         });
     }
-
+ 
     function formKontrol() {
         let gecerli = true;
         const alanlar = ["adSoyad", "email", "konu", "mesaj"];
         const emailKurali = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+ 
         alanlar.forEach(id => {
             const input = document.getElementById(id);
             const hata = document.getElementById(id + "Hata");
             const deger = input.value.trim();
-
+ 
             if (deger === "") {
                 hataGoster(input, hata, "Bu alan boş bırakılamaz!");
                 gecerli = false;
@@ -67,14 +95,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
-
+ 
         if (gecerli) {
             alert("Mesajınız başarıyla gönderildi! 🎉");
             iletisimForm.reset();
             alanlar.forEach(id => document.getElementById(id).classList.remove("border-green-500"));
         }
     }
-
+ 
     function hataGoster(input, hata, mesaj) {
         input.classList.add("border-red-500");
         input.classList.remove("border-gray-300");
@@ -83,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             hata.classList.remove("hidden");
         }
     }
-
+ 
     // ===== LIGHTBOX =====
     const overlay = document.getElementById("lightbox-overlay");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -91,10 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("lightbox-close");
     const prevBtn = document.getElementById("lightbox-prev");
     const nextBtn = document.getElementById("lightbox-next");
-
+ 
     let triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
     let aktifIndex = 0;
-
+ 
     function lightboxAc(index) {
         if (!triggers[index]) return;
         aktifIndex = index;
@@ -103,50 +131,50 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.classList.add("aktif");
         document.body.style.overflow = "hidden";
     }
-
+ 
     function lightboxKapat() {
         overlay.classList.remove("aktif");
         document.body.style.overflow = "";
     }
-
+ 
     function sonraki() {
         aktifIndex = (aktifIndex + 1) % triggers.length;
         lightboxAc(aktifIndex);
     }
-
+ 
     function onceki() {
         aktifIndex = (aktifIndex - 1 + triggers.length) % triggers.length;
         lightboxAc(aktifIndex);
     }
-
+ 
     triggers.forEach((img, i) => {
         img.addEventListener("click", () => lightboxAc(i));
     });
-
+ 
     if (closeBtn) closeBtn.addEventListener("click", lightboxKapat);
     if (nextBtn) nextBtn.addEventListener("click", sonraki);
     if (prevBtn) prevBtn.addEventListener("click", onceki);
-
+ 
     if (overlay) {
         overlay.addEventListener("click", (e) => {
             if (e.target === overlay) lightboxKapat();
         });
     }
-
+ 
     document.addEventListener("keydown", (e) => {
         if (!overlay || !overlay.classList.contains("aktif")) return;
         if (e.key === "Escape") lightboxKapat();
         if (e.key === "ArrowRight") sonraki();
         if (e.key === "ArrowLeft") onceki();
     });
-
+ 
 });
-
+ 
 const darkBtnMobile = document.getElementById("darkModeBtnMobile");
 if (darkBtnMobile) {
     // Başlangıç ikonunu ayarla
     darkBtnMobile.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    
+   
     darkBtnMobile.addEventListener("click", () => {
         body.classList.toggle("dark-mode");
         const isDark = body.classList.contains("dark-mode");
