@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSD Gelişim Üniversitesi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
+    body.dark-mode section { background-color: #1a1a1a !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h5 { color: #ffffff !important; }
+    body.dark-mode p { color: #cbd5e0 !important; }
+    body.dark-mode .bg-white, body.dark-mode .bg-gray-100 { background-color: #1e2530 !important; }
+    body.dark-mode input, body.dark-mode textarea { background-color: #2d333b !important; color: #fff !important; }
+    body.dark-mode nav { background-color: #02034d !important; }
+</style>
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="script.js"></script>
+<body>
+
+
+    <nav class="bg-[#04067c] sticky top-0 z-50 py-4">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+            <img src="hsd-logo-white.png" alt="HSD Logo" class="h-10 mr-2">
+        </a>
+
+        <!-- Hamburger (mobil) -->
+        <button id="menuBtn" class="text-white lg:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+
+        <!-- Linkler -->
+        <div id="navbarNav" class="hidden lg:flex items-center gap-6">
+            <ul class="flex items-center gap-6">
+                <li><a href="#bu-hafta" class="text-white font-medium hover:text-gray-300 transition">Bülten</a></li>
+                <li><a href="#duyurular" class="text-white font-medium hover:text-gray-300 transition">Duyurular</a></li>
+                <li><a href="#blog" class="text-white font-medium hover:text-gray-300 transition">Blog</a></li>
+                <li><a href="#hakkimizda" class="text-white font-medium hover:text-gray-300 transition">Hakkımızda</a></li>
+                <li><a href="#ekibimiz" class="text-white font-medium hover:text-gray-300 transition">Ekibimiz</a></li>
+                <li><a href="#iletisim" class="text-white font-medium hover:text-gray-300 transition">İletişim</a></li>
+            </ul>
+            <a href="https://www.gelisim.edu.tr" target="_blank">
+                <img src="igu.png" alt="IGU Logo" class="h-10 ml-4">
+            </a>
+            <button id="darkModeBtn" class="text-2xl bg-transparent border-none cursor-pointer ml-2">🌙</button>
+        </div>
+    </div>
+
+    <!-- Mobil menü -->
+    <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 flex flex-col gap-3">
+        <a href="#bu-hafta" class="text-white font-medium">Bülten</a>
+        <a href="#duyurular" class="text-white font-medium">Duyurular</a>
+        <a href="#blog" class="text-white font-medium">Blog</a>
+        <a href="#hakkimizda" class="text-white font-medium">Hakkımızda</a>
+        <a href="#ekibimiz" class="text-white font-medium">Ekibimiz</a>
+        <a href="#iletisim" class="text-white font-medium">İletişim</a>
+        <button id="darkModeBtnMobile" class="text-2xl bg-transparent border-none cursor-pointer text-white w-fit">🌙</button>
+
+    </div>
+</nav>
+<header class="bg-gradient-to-br from-blue-500 to-blue-900 text-white text-center py-24">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-4xl font-extrabold mb-4">HSD Gelişim'e Hoş Geldiniz</h1>
+        <p class="text-xl text-blue-100">Geleceği birlikte inşa ediyoruz.</p>
+    </div>
+</header>
+<div id="lightbox-overlay" class="lightbox-overlay">
+    <button id="lightbox-close" class="lightbox-close" aria-label="Kapat">&times;</button>
+    <button id="lightbox-prev" class="lightbox-prev" aria-label="Önceki">&#8249;</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="">
+    <p id="lightbox-caption" style="color:white; margin-top: 12px; font-size: 14px;"></p>
+    <button id="lightbox-next" class="lightbox-next" aria-label="Sonraki">&#8250;</button>
+</div>
+<main>
+
+      <!-- BÜLTEN -->
+<section id="bu-hafta" class="py-20 bg-gray-100 border-b scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">HSD Bülten</h2>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded"></div>
+        <p class="text-center text-gray-600">Haftalık bülten, Medium yazıları ve öne çıkan etkinlikler.</p>
+    </div>
+</section>
+
+<!-- DUYURULAR -->
+<section id="duyurular" class="py-20 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">Duyurular</h2>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded"></div>
+        <div class="min-h-64 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center">
+            <p class="text-gray-400">Duyuru kartları bu alana eklenecektir.</p>
+        </div>
+    </div>
+</section>
+
+       <!-- BLOG -->
+<section id="blog" class="py-20 bg-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">Blog Yazılarımız</h2>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <a href="https://medium.com/huawei-student-developers-turkiye/yapay-zeka-destekli-%C3%A7arp%C4%B1%C5%9Fma-%C3%B6nleme-sistemleri-4a81446edc89" target="_blank" class="no-underline">
+                <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                    <div class="h-44 overflow-hidden">
+                        <img src="araba.webp" alt="Blog Görseli" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">Yapay Zeka</span>
+                        <h5 class="font-bold text-gray-800 mb-2">Yapay Zeka Destekli Çarpışma Önleme Sistemleri</h5>
+                        <p class="text-gray-500 text-sm flex-1">Otomotiv sektöründe yapay zeka ile gelişen akıllı güvenlik sistemleri ve çarpışma önleme teknolojileri.</p>
+                        <div class="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
+                            <span class="text-gray-400 text-xs">✍️ İrem Kuray</span>
+                            <span class="text-blue-700 text-xs font-semibold">Daha Fazla Oku →</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://medium.com/huawei-student-developers-turkiye/veri-g%C3%BCn%C3%BCm%C3%BCz%C3%BCn-yeni-petrol%C3%BC-m%C3%BC-9c7ae066b750" target="_blank" class="no-underline">
+                <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                    <div class="h-44 overflow-hidden">
+                        <img src="Veri-Analisti-Nedir-ve-Neden-Onemlidir.webp" alt="Blog Görseli" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">Veri</span>
+                        <h5 class="font-bold text-gray-800 mb-2">Veri, Günümüzün Yeni Petrolü mü?</h5>
+                        <p class="text-gray-500 text-sm flex-1">Veriyi stratejik bir varlığa dönüştürerek rekabet avantajı sağlamanın ve dijital dünyanın en değerli kaynağını yönetmenin incelikleri.</p>
+                        <div class="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
+                            <span class="text-gray-400 text-xs">✍️ Furkan Erden</span>
+                            <span class="text-blue-700 text-xs font-semibold">Daha Fazla Oku →</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://medium.com/huawei-student-developers-turkiye/dijital-sadele%C5%9Fme-teknoloji-%C3%A7a%C4%9F%C4%B1nda-daha-az-ile-daha-fazla-ya%C5%9Famak-ec46fe17692e" target="_blank" class="no-underline">
+                <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                    <div class="h-44 overflow-hidden">
+                        <img src="dijitallesme-nedir-ana-gorseli-1024x683.webp" alt="Blog Görseli" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">Verimlilik</span>
+                        <h5 class="font-bold text-gray-800 mb-2">Dijital Sadeleşme: Teknoloji Çağında Daha Az ile Daha Fazla Yaşamak</h5>
+                        <p class="text-gray-500 text-sm flex-1">Teknolojiyi hayatımızdan çıkarmak değil; onu doğru konumlandırıp kontrollü kullanmak için stratejiler.</p>
+                        <div class="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
+                            <span class="text-gray-400 text-xs">✍️ Kadir Dalkılıç</span>
+                            <span class="text-blue-700 text-xs font-semibold">Daha Fazla Oku →</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://medium.com/huawei-student-developers-turkiye/yapay-zek%C3%A2n%C4%B1n-oyun-geli%C5%9Ftirmeye-olan-etkileri-31601865e190" target="_blank" class="no-underline">
+                <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                    <div class="h-44 overflow-hidden">
+                        <img src="yapay-zeka-oyun-gelistirme.jpg" alt="Blog Görseli" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">Oyun</span>
+                        <h5 class="font-bold text-gray-800 mb-2">Yapay Zekânın Oyun Geliştirmeye Olan Etkileri</h5>
+                        <p class="text-gray-500 text-sm flex-1">Yapay zekanın oyun geliştirme süreçlerine getirdiği yenilikler ve gelecekteki etkileri.</p>
+                        <div class="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
+                            <span class="text-gray-400 text-xs">✍️ Eren Baksoy</span>
+                            <span class="text-blue-700 text-xs font-semibold">Daha Fazla Oku →</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ETKİNLİK FOTOĞRAFLARI -->
+<section id="etkinlik-fotograflari" class="py-20 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">Etkinlik Fotoğrafları</h2>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded"></div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <img src="etkinlik1.jpg" alt="Etkinlik 1" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih">
+            <img src="etkinlik2.jpg" alt="Etkinlik 2" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih">
+            <img src="etkinlik3.jpg" alt="Etkinlik 3" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih">
+        </div>
+    </div>
+</section>
+        <!-- HAKKIMIZDA -->
+<section id="hakkimizda" class="py-20 bg-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">Hakkımızda</h2>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-16 rounded"></div>
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+
+            <!-- Sol: Metin -->
+            <div class="lg:w-1/2">
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">Biz Kimiz?</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">HSD Gelişim, üniversite öğrencilerini teknoloji, yazılım ve inovasyon alanlarında bir araya getiren aktif bir topluluktur. Birlikte öğrenir, üretir ve büyürüz.</p>
+                <p class="text-gray-600 leading-relaxed mb-6">Misyonumuz; üyelerimize mentorluk, etkinlik ve projeler aracılığıyla kariyer yollarında rehberlik etmek ve güçlü bir öğrenci ekosistemi oluşturmaktır.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-blue-100 text-blue-800 font-semibold text-sm px-4 py-2 rounded-full">Yazılım</span>
+                    <span class="bg-blue-100 text-blue-800 font-semibold text-sm px-4 py-2 rounded-full">İnovasyon</span>
+                    <span class="bg-blue-100 text-blue-800 font-semibold text-sm px-4 py-2 rounded-full">Mentorluk</span>
+                    <span class="bg-blue-100 text-blue-800 font-semibold text-sm px-4 py-2 rounded-full">Topluluk</span>
+                </div>
+            </div>
+
+            <!-- Sağ: İstatistikler -->
+            <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
+                    <span class="block text-4xl font-extrabold text-blue-800">150+</span>
+                    <span class="text-gray-500 text-sm mt-1 block">Üye</span>
+                </div>
+                <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
+                    <span class="block text-4xl font-extrabold text-blue-800">30+</span>
+                    <span class="text-gray-500 text-sm mt-1 block">Etkinlik</span>
+                </div>
+                <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
+                    <span class="block text-4xl font-extrabold text-blue-800">20+</span>
+                    <span class="text-gray-500 text-sm mt-1 block">Proje</span>
+                </div>
+                <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
+                    <span class="block text-4xl font-extrabold text-blue-800">5+</span>
+                    <span class="text-gray-500 text-sm mt-1 block">Yıl</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EKİBİMİZ -->
+<section id="ekibimiz" class="py-20 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-2">Ekibimiz</h2>
+        <p class="text-center text-gray-400 mb-4">Topluluğumuzu yöneten harika insanlar</p>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-16 rounded"></div>
+
+        <!-- ELÇİ -->
+        <div class="flex items-center gap-4 mb-8">
+            <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200"></div>
+            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Elçi</span>
+            <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200"></div>
+        </div>
+        <div class="flex justify-center mb-12">
+            <div class="bg-white border-2 border-yellow-400 rounded-2xl p-8 text-center w-64 relative shadow-yellow-100 shadow-lg hover:-translate-y-2 transition-transform">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
+                <div class="w-24 h-24 rounded-full border-4 border-yellow-400 overflow-hidden mx-auto mb-4">
+                    <img src="nurgul.jpeg" alt="Elçi" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900">Nurgül Yıldız</h5>
+                <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi</span>
+            </div>
+        </div>
+
+        <!-- ELÇİ YARDIMCILARI -->
+        <div class="flex items-center gap-4 mb-8">
+            <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200"></div>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Elçi Yardımcıları</span>
+            <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200"></div>
+        </div>
+        <div class="flex justify-center gap-6 mb-12 flex-wrap">
+            <div class="bg-white border border-blue-200 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
+                <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
+                    <img src="furkanerden.jpeg" alt="Elçi Yardımcısı" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900 text-sm">Furkan Erden</h5>
+                <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi Yardımcısı</span>
+            </div>
+            <div class="bg-white border border-blue-200 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
+                <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
+                    <img src="irmak.jpeg" alt="Elçi Yardımcısı" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900 text-sm">Irmak Gündüz</h5>
+                <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi Yardımcısı</span>
+            </div>
+        </div>
+
+        <!-- KULÜP BAŞKANLARI -->
+        <div class="flex items-center gap-4 mb-8">
+            <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200"></div>
+            <span class="bg-green-100 text-green-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Kulüp Başkanları</span>
+            <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200"></div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
+                    <img src="alp.jpeg" alt="Başkan 1" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900 text-sm">Ali Alp Kocaoğlu</h5>
+                <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Web Sitesi Proje Lideri</span>
+                <span class="block text-gray-400 text-xs italic mt-2">Kulüp 1</span>
+            </div>
+            <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
+                    <img src="eren.jpeg" alt="Başkan 2" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900 text-sm">Eren Baksoy</h5>
+                <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Oyun Proje Lideri</span>
+                <span class="block text-gray-400 text-xs italic mt-2">Kulüp 2</span>
+            </div>
+            <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
+                    <img src="yaren.jpeg" alt="Başkan 3" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900 text-sm">Yaren Timur</h5>
+                <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Sosyal Medya Lideri</span>
+                <span class="block text-gray-400 text-xs italic mt-2">Kulüp 3</span>
+            </div>
+            <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
+                    <img src="damla.jpeg" alt="Başkan 4" class="w-full h-full object-cover">
+                </div>
+                <h5 class="font-bold text-blue-900 text-sm">Damla Muyan</h5>
+                <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Etkinlik Lideri</span>
+                <span class="block text-gray-400 text-xs italic mt-2">Kulüp 4</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- İLETİŞİM -->
+<section id="iletisim" class="py-20 bg-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">İletişim</h2>
+        <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded"></div>
+        <div class="max-w-2xl mx-auto">
+            <form id="iletisimForm" novalidate>
+                <div class="mb-5">
+                    <label for="adSoyad" class="block text-sm font-semibold text-gray-700 mb-2">Ad Soyad</label>
+                    <input type="text" id="adSoyad" placeholder="Adınız Soyadınız" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                    <div class="text-red-500 text-sm mt-1 hidden" id="adSoyadHata"></div>
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">E-posta Adresi</label>
+                    <input type="email" id="email" placeholder="ornek@mail.com" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                    <div class="text-red-500 text-sm mt-1 hidden" id="emailHata"></div>
+                </div>
+                <div class="mb-5">
+                    <label for="konu" class="block text-sm font-semibold text-gray-700 mb-2">Konu Başlığı</label>
+                    <input type="text" id="konu" placeholder="Konu başlığınız" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                    <div class="text-red-500 text-sm mt-1 hidden" id="konuHata"></div>
+                </div>
+                <div class="mb-5">
+                    <label for="mesaj" class="block text-sm font-semibold text-gray-700 mb-2">Mesaj</label>
+                    <textarea id="mesaj" rows="5" placeholder="Mesajınızı buraya yazın..." class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"></textarea>
+                    <div class="text-red-500 text-sm mt-1 hidden" id="mesajHata"></div>
+                </div>
+                <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition">Gönder</button>
+            </form>
+        </div>
+    </div>
+</section>
