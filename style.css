@@ -1,14 +1,12 @@
-/* ===== GENEL SAYFA AYARLARI ===== */
-body.dark-mode {
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
-}
+/* ================================================
+   GENEL SAYFA AYARLARI
+   ================================================ */
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Varsa genel fontunuz */
+    font-family: 'Inter', sans-serif;
 }
 
 section {
@@ -23,17 +21,21 @@ section h2 {
     text-align: center;
 }
 
-section h2::after {
+section h2::after,
+.h2-alt::after {
     content: '';
     display: block;
     width: 50px;
     height: 4px;
     background: #0028a5;
-    margin: 15px auto 0;
+    margin: 14px auto 0;
     border-radius: 2px;
 }
 
-/* ===== NAVBAR ===== */
+
+/* ================================================
+   NAVBAR
+   ================================================ */
 .navbar {
     background-color: #04067c;
     padding: 15px 0 !important;
@@ -44,29 +46,20 @@ section h2::after {
     width: auto;
 }
 
-/* Ana başlığın olduğu mavi alanı (main-hero) karanlık yapar */
-body.dark-mode .main-hero {
-    background: #04067c !important; /* Mavi gradyanı kaldırıp siyah yapar */
-    color: #ffffff !important;
-}
 
-/* Başlık ve altındaki yazıların rengini garantiye alır */
-body.dark-mode .main-hero h1,
-body.dark-mode .main-hero p {
-    color: #ffffff !important;
-}
-
-/* ===== HERO & CAROUSEL ===== */
+/* ================================================
+   HERO & CAROUSEL
+   ================================================ */
 .main-hero {
     background: linear-gradient(135deg, #0d6efd 0%, #0028a5 100%) !important;
     padding: 100px 0;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .main-hero h1 {
     font-weight: 800;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-item img {
@@ -75,7 +68,14 @@ body.dark-mode .main-hero p {
     border-radius: 15px;
 }
 
-/* ===== HAKKIMIZDA & İSTATİSTİKLER ===== */
+.komite-hero {
+    background: linear-gradient(135deg, #0d6efd 0%, #0028a5 60%, #04067c 100%);
+}
+
+
+/* ================================================
+   HAKKIMIZDA & İSTATİSTİKLER
+   ================================================ */
 .hakkimizda-baslik {
     font-size: 1.6rem;
     font-weight: 700;
@@ -123,7 +123,10 @@ body.dark-mode .main-hero p {
     line-height: 1;
 }
 
-/* ===== EKİBİMİZ — KARTLAR & ETİKETLER ===== */
+
+/* ================================================
+   EKİBİMİZ — KARTLAR & ETİKETLER
+   ================================================ */
 .ekip-grup-baslik {
     display: flex;
     align-items: center;
@@ -131,7 +134,11 @@ body.dark-mode .main-hero p {
     margin-bottom: 28px;
 }
 
-.ekip-grup-cizgi { flex: 1; height: 1px; background: #dee2e6; }
+.ekip-grup-cizgi {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #dee2e6, transparent);
+}
 
 .ekip-grup-label {
     font-size: 0.8rem;
@@ -142,7 +149,7 @@ body.dark-mode .main-hero p {
     border-radius: 20px;
 }
 
-.elci-label { background: #fff3cd; color: #856404; }
+.elci-label     { background: #fff3cd; color: #856404; }
 .yardimci-label { background: #e8ecff; color: #0028a5; }
 .baskanlari-label { background: #e8f5e9; color: #1b5e20; }
 
@@ -152,15 +159,17 @@ body.dark-mode .main-hero p {
     padding: 28px 16px 20px;
     text-align: center;
     position: relative;
-    transition: all 0.3s ease;
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.32s ease;
 }
 
-.ekip-kart--elci { border: 2px solid #ffc107; box-shadow: 0 4px 20px rgba(255, 193, 7, 0.18); }
+.ekip-kart--elci    { border: 2px solid #ffc107; box-shadow: 0 4px 20px rgba(255, 193, 7, 0.18); }
 .ekip-kart--yardimci { border: 1px solid #b8c5f5; }
-.ekip-kart--baskan { border: 1px solid #b2dfdb; }
+.ekip-kart--baskan  { border: 1px solid #b2dfdb; }
 
 .ekip-kart:hover {
-    transform: translateY(-6px);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 40, 165, 0.25);
+    border-color: #0028a5;
 }
 
 .ekip-avatar-wrap {
@@ -180,7 +189,109 @@ body.dark-mode .main-hero p {
 
 .ekip-avatar { width: 100%; height: 100%; object-fit: cover; }
 
-/* ===== LIGHTBOX (GALERİ) ===== */
+.ekip-kulup-adi {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #1b5e20;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 10px;
+    border: 1px solid rgba(27, 94, 32, 0.1);
+}
+
+
+/* ================================================
+   KOMİTE KARTLARI
+   ================================================ */
+.komite-kart {
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.32s ease;
+    text-decoration: none !important;
+    color: inherit !important;
+    animation: fadeUp 0.5s ease both;
+}
+
+.komite-kart:hover { transform: translateY(-10px); }
+.komite-kart:nth-child(2) { animation-delay: 0.09s; }
+.komite-kart:nth-child(3) { animation-delay: 0.18s; }
+.komite-kart:nth-child(4) { animation-delay: 0.27s; }
+.komite-kart:nth-child(5) { animation-delay: 0.36s; }
+
+
+/* ================================================
+   BANNER ŞERİTLERİ
+   ================================================ */
+.banner-sosyal     { background: linear-gradient(90deg, #e91e8c, #ff7043); }
+.banner-etkinlik   { background: linear-gradient(90deg, #00897b, #43a047); }
+.banner-sponsorluk { background: linear-gradient(90deg, #f57c00, #fdd835); }
+.banner-teknik     { background: linear-gradient(90deg, #6c3fc5, #2563eb); }
+.banner-medium     { background: linear-gradient(90deg, #1a1a1a, #00b074); }
+
+
+/* ================================================
+   EKİBİ GÖR BUTONLARI
+   ================================================ */
+.btn-gor {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: filter 0.2s, transform 0.2s;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.btn-gor:hover          { filter: brightness(0.88); transform: translateX(3px); }
+.btn-gor svg            { transition: transform 0.2s; }
+.btn-gor:hover svg      { transform: translateX(4px); }
+.btn-sosyal             { background: linear-gradient(90deg, #e91e8c, #ff7043); }
+.btn-etkinlik           { background: #00897b; }
+.btn-sponsorluk         { background: #f57c00; }
+.btn-teknik             { background: #6c3fc5; }
+.btn-medium             { background: linear-gradient(90deg, #1a1a1a, #00b074); }
+
+
+/* ================================================
+   BLOG KARTLARI
+   ================================================ */
+.blog-kart-ust {
+    padding: 0;
+    height: 180px;
+    overflow: hidden;
+}
+
+.blog-kart-ust img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ================================================
+   DUYURU FİLTRELEME
+   ================================================ */
+.duyuru-kart.gizli {
+    display: none;
+}
+
+.filtre-btn.aktif {
+    background-color: #04067c !important;
+    color: #ffffff !important;
+    border-color: #04067c !important;
+}
+
+
+/* ================================================
+   LIGHTBOX (GALERİ)
+   ================================================ */
 .lightbox-trigger {
     cursor: zoom-in;
     transition: all 0.3s ease;
@@ -210,7 +321,7 @@ body.dark-mode .main-hero p {
     max-width: 88vw;
     max-height: 75vh;
     border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     animation: zoomIn 0.3s ease;
     object-fit: contain;
 }
@@ -229,12 +340,13 @@ body.dark-mode .main-hero p {
 
 .lightbox-close:hover { transform: rotate(90deg) scale(1.2); }
 
-.lightbox-prev, .lightbox-next {
+.lightbox-prev,
+.lightbox-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 2rem;
     padding: 15px 20px;
@@ -246,17 +358,38 @@ body.dark-mode .main-hero p {
 
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
+.lightbox-prev:hover,
+.lightbox-next:hover { background: rgba(255, 255, 255, 0.3); }
 
-.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.3); }
 
-/* ===== ANİMASYONLAR ===== */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+/* ================================================
+   ANİMASYONLAR
+   ================================================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
-/* ===== ERİŞİLEBİLİRLİK & MOBİL ===== */
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ================================================
+   ERİŞİLEBİLİRLİK
+   ================================================ */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .lightbox-trigger, .ekip-kart, .stat-kart { transition: none; }
+    .lightbox-trigger,
+    .ekip-kart,
+    .stat-kart,
+    .komite-kart { transition: none; animation: none; }
 }
 
 .lightbox-close:focus-visible,
@@ -265,310 +398,167 @@ body.dark-mode .main-hero p {
     outline: 3px solid #fff;
     outline-offset: 2px;
 }
-/* ===== DARK MODE RENK DEĞİŞKENLERİ ===== */
-body.dark-mode {
-    background-color: #121212; /* Çok koyu gri/siyah */
+
+
+/* ================================================
+   DARK MODE  (html.dark — Tailwind dark: prefix ile uyumlu)
+   ================================================ */
+
+/* Temel */
+html.dark body {
+    background-color: #121212;
     color: #e0e0e0;
 }
 
-/* Bölüm Arka Planları */
-body.dark-mode section {
+/* Bölümler */
+html.dark section {
     background-color: #1a1a1a !important;
 }
 
-/* Başlıklar ve Metinler */
-body.dark-mode h1, 
-body.dark-mode h2, 
-body.dark-mode .hakkimizda-baslik,
-body.dark-mode .ekip-isim {
+/* Başlıklar */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h5,
+html.dark .hakkimizda-baslik,
+html.dark .ekip-isim {
     color: #ffffff !important;
 }
 
-body.dark-mode .hakkimizda-metin,
-body.dark-mode .stat-etiket,
-body.dark-mode .ekip-kulup-adi {
+/* Metinler */
+html.dark p,
+html.dark p span,
+html.dark .text-gray-500,
+html.dark .text-gray-400,
+html.dark .text-muted {
+    color: #cbd5e0 !important;
+}
+
+html.dark .hakkimizda-metin,
+html.dark .stat-etiket,
+html.dark .ekip-kulup-adi {
     color: #bbbbbb;
 }
 
-/* Kartlar (Ekip ve İstatistik) */
-body.dark-mode .stat-kart, 
-body.dark-mode .ekip-kart {
+/* Arka planlar */
+html.dark .bg-white,
+html.dark .bg-gray-100 {
+    background-color: #1a1a1a !important;
+}
+
+/* Navbar */
+html.dark .navbar {
+    background-color: #2d333b !important;
+    border-bottom: 1px solid #1a1d23;
+}
+
+html.dark .nav-link         { color: #ffffff !important; }
+html.dark .nav-link:hover   { color: #adbac7 !important; }
+html.dark .navbar-brand     { color: #ffffff !important; }
+
+/* Hero */
+html.dark .main-hero {
+    background: #313943 !important;
+    color: #ffffff !important;
+}
+
+html.dark .main-hero h1,
+html.dark .main-hero p {
+    color: #ffffff !important;
+}
+
+html.dark .komite-hero {
+    background: linear-gradient(135deg, #0d1b4b 0%, #04067c 60%, #020318 100%);
+}
+
+/* Kartlar */
+html.dark .stat-kart,
+html.dark .ekip-kart {
     background-color: #242424;
     border-color: #333333;
     color: #fff;
 }
 
-/* Duyurular & Bülten Alanı */
-body.dark-mode #duyurular h2 {
-    color: #fff;
-}
-
-/* Navbar (Zaten koyu mavi ama gerekirse tonuyla oynayabilirsin) */
-body.dark-mode .navbar {
-    background-color: #02034d; 
-}
-
-/* Form Alanları */
-body.dark-mode .form-control {
-    background-color: #2d2d2d;
-    border-color: #444;
-    color: #fff;
-}
-
-body.dark-mode .form-control:focus {
-    background-color: #333;
-}
-
-/* ===== ÖZEL LACİVERT DARK MODE ===== */
-
-/* Ana Giriş Alanı (Hero) - Tam Lacivert */
-body.dark-mode .main-hero {
-    background: #313943 !important;
-    color: #ffffff !important;
-}
-
-/* Duyurular ve Bülten Kısmı - Lacivertin çok hafif farklı bir tonu (Derinlik katar) */
-body.dark-mode .hsd-bulten,
-body.dark-mode .duyurular-section {
-    background-color: #313943 !important; /* Bir tık daha koyu lacivert */
-    color: #ffffff !important;
-}
-
-/* Yazıların net okunması için */
-body.dark-mode p, 
-body.dark-mode .text-muted {
-    color: #cbd5e0 !important; /* Hafif gümüş rengi yazı, lacivert üstünde çok şık durur */
-}
-/* ===== İLETİŞİM FORMU DARK MODE DÜZENLEMESİ ===== */
-
-/* Input ve Textarea kutularının arka planını ve yazı rengini açar */
-body.dark-mode .form-control {
-    background-color: #2d333b !important; /* Hafif daha açık bir füme/lacivert */
-    border: 1,5px solid #444c56 !important; /* Kenarlıkları belirginleştirir */
-    color: #ffffff !important; /* Yazılan yazıları beyaz yapar */
-}
-
-/* "Adınız Soyadınız" gibi ipucu (placeholder) yazılarını belirginleştirir */
-body.dark-mode .form-control::placeholder {
-    color: #adbac7 !important; /* Gri-gümüş tonuyla daha okunur hale getirir */
-    opacity: 1;
-}
-
-/* Kutuya tıklandığında (focus) oluşan mavi parlamayı ayarlar */
-body.dark-mode .form-control:focus {
-    background-color: #313943 !important;
-    border-color: #58a6ff !important;
-    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.25) !important;
-}
-
-/* Formun üstündeki "Ad Soyad", "E-posta" etiketlerini beyazlatır */
-body.dark-mode label {
-    color: #ffffff !important;
-}
-/* ===== NAVBAR DARK MODE DÜZENLEMESİ ===== */
-
-/* Menü çubuğunun arka planını senin seçtiğin laciverte çeker */
-body.dark-mode .navbar {
-    background-color: #2d333b !important; /* Navbar'ı ana lacivertinle eşitledik */
-    border-bottom: 1px solid #1a1d23; /* Altına ince bir çizgi çekerek derinlik kattık */
-}
-
-/* Menü linklerinin (Bülten, Duyurular vb.) renklerini beyaz yapar */
-body.dark-mode .nav-link {
-    color: #ffffff !important;
-}
-
-/* Mouse ile üzerine gelince linklerin parlamasını sağlar */
-body.dark-mode .nav-link:hover {
-    color: #adbac7 !important; 
-}
-
-/* Logo (HSD yazısı) eğer metinse onu da beyazlatır */
-body.dark-mode .navbar-brand {
-    color: #ffffff !important;
-}
-
-/* Mevcut .ekip-kart:hover kısmını bununla değiştir */
-.ekip-kart:hover {
-    transform: translateY(-10px); /* 6px'den 10px'e çıkardık */
-    box-shadow: 0 12px 30px rgba(0, 40, 165, 0.25); /* Mavi tonlu derinlik */
-    border-color: #0028a5; /* Hoverda kenarlık belirginleşsin */
-}
-
-/* Karanlık modda hover parlaması */
-body.dark-mode .ekip-kart:hover {
+html.dark .ekip-kart:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    border-color: #ffc107; /* Koyu temada altın sarısı vurgu */
+    border-color: #ffc107;
 }
 
-.ekip-kulup-adi {
-    display: inline-block;
-    background: #e8f5e9; /* Hafif yeşil arka plan */
-    color: #1b5e20;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-top: 10px;
-    border: 1px solid rgba(27, 94, 32, 0.1);
+/* Blog kartları */
+html.dark .blog-kart {
+    background: #1e2530;
+    border-color: #2d3748;
 }
 
-/* Karanlık modda etiket rengi */
-body.dark-mode .ekip-kulup-adi {
+html.dark .blog-kart-ust {
+    background: linear-gradient(135deg, #0a3d8f 0%, #02034d 100%);
+}
+
+html.dark .blog-etiket { background: #2d3a5c; color: #7eb3ff; }
+html.dark .blog-alt    { border-top-color: #2d3748; }
+html.dark .blog-yazar  { color: #8899aa; }
+html.dark .blog-medium { color: #7eb3ff; }
+
+/* Ekip etiketi */
+html.dark .ekip-kulup-adi {
     background: rgba(178, 223, 219, 0.1);
     color: #b2dfdb;
     border-color: rgba(178, 223, 219, 0.2);
 }
 
-/* Mevcut .ekip-grup-cizgi kısmını bununla değiştir */
-.ekip-grup-cizgi { 
-    flex: 1; 
-    height: 1px; 
-    background: linear-gradient(to right, transparent, #dee2e6, transparent); 
-}
-
-body.dark-mode .ekip-grup-cizgi {
+/* Grup çizgisi */
+html.dark .ekip-grup-cizgi {
     background: linear-gradient(to right, transparent, #333, transparent);
 }
-.blog-kart-ust {
-    background: linear-gradient(135deg, #0d6efd 0%, #0028a5 100%);
-    padding: 30px;
-    font-size: 2.5rem;
-    text-align: center;
-    min-height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-/* Dark mode için üst kısım biraz daha koyu olsun */
-body.dark-mode .blog-kart-ust {
-    background: linear-gradient(135deg, #0a3d8f 0%, #02034d 100%);
-}
-
-/* Dark mode'da kart arka planı */
-body.dark-mode .blog-kart {
-    background: #1e2530;
-    border-color: #2d3748;
-}
-
-/* Dark mode'da etiket */
-body.dark-mode .blog-etiket {
-    background: #2d3a5c;
-    color: #7eb3ff;
-}
-
-/* Dark mode'da alt çizgi */
-body.dark-mode .blog-alt {
-    border-top-color: #2d3748;
-}
-
-/* Dark mode'da yazar ve medium yazısı */
-body.dark-mode .blog-yazar {
-    color: #8899aa;
-}
-
-body.dark-mode .blog-medium {
-    color: #7eb3ff;
-}
-.blog-kart-ust {
-    padding: 0;
-    height: 180px;
-    overflow: hidden;
-}
-
-.blog-kart-ust img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-/* ===== TAILWIND DARK MODE ===== */
-body.dark-mode {
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
-}
-
-body.dark-mode section {
-    background-color: #1a1a1a !important;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h5 {
+/* Duyurular */
+html.dark #duyurular h2     { color: #fff; }
+html.dark .hsd-bulten,
+html.dark .duyurular-section {
+    background-color: #313943 !important;
     color: #ffffff !important;
 }
 
-body.dark-mode p,
-body.dark-mode p span,
-body.dark-mode .text-gray-500,
-body.dark-mode .text-gray-400 { color: #cbd5e0 !important; }
-
-body.dark-mode .bg-white,
-body.dark-mode .bg-gray-100 {
-    background-color: #1a1a1a !important;
-}
-
-body.dark-mode input,
-body.dark-mode textarea {
-    background-color: #2d333b !important;
-    color: #ffffff !important;
-    border-color: #444 !important;
-}
-
-body.dark-mode label {
-    color: #ffffff !important;
-}
-/* Gizli kart */
-
-.duyuru-kart.gizli {
-
-    display: none;
-
-}
- 
-/* Aktif buton */
-
-.filtre-btn.aktif {
-
-    background-color: #04067c !important;
-
-    color: #ffffff !important;
-
-    border-color: #04067c !important;
-
-}
- 
-/* Dark mode butonlar */
-
-body.dark-mode .filtre-btn {
-
-    background-color: #1e2530;
-
-    color: #cbd5e0;
-
-    border-color: #444c56;
-
-}
-
-body.dark-mode .filtre-btn.aktif {
-
-    background-color: #04067c !important;
-
-    color: #ffffff !important;
-
-    border-color: #7eb3ff !important;
-
-}
- 
-/* Dark mode kartlar */
-
-body.dark-mode .duyuru-kart {
-
+html.dark .duyuru-kart {
     background-color: #1e2530 !important;
-
     border-color: #2d3748 !important;
-
 }
- 
+
+/* Filtre butonları */
+html.dark .filtre-btn {
+    background-color: #1e2530;
+    color: #cbd5e0;
+    border-color: #444c56;
+}
+
+html.dark .filtre-btn.aktif {
+    background-color: #04067c !important;
+    color: #ffffff !important;
+    border-color: #7eb3ff !important;
+}
+
+/* Form */
+html.dark .form-control,
+html.dark input,
+html.dark textarea {
+    background-color: #2d333b !important;
+    border: 1.5px solid #444c56 !important;
+    color: #ffffff !important;
+}
+
+html.dark .form-control::placeholder,
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+    color: #adbac7 !important;
+    opacity: 1;
+}
+
+html.dark .form-control:focus,
+html.dark input:focus,
+html.dark textarea:focus {
+    background-color: #313943 !important;
+    border-color: #58a6ff !important;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.25) !important;
+}
+
+html.dark label { color: #ffffff !important; }
