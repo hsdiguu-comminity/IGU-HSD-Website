@@ -1,85 +1,105 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ===== DUYURU FİLTRELEME =====
-    const filtreButonlar = document.querySelectorAll('.filtre-btn');
-    const duyuruKartlar = document.querySelectorAll('.duyuru-kart');
-    const bosMesaj = document.getElementById('bos-mesaj');
- 
-    filtreButonlar.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Aktif sınıfı taşı
-            filtreButonlar.forEach(b => b.classList.remove('aktif'));
-            btn.classList.add('aktif');
- 
-            const seciliKategori = btn.dataset.kategori;
-            let gorunenSayisi = 0;
- 
-            // Kartları göster/gizle
-            duyuruKartlar.forEach(kart => {
-                const eslesme = seciliKategori === 'tumu'
-                                || kart.dataset.kategori === seciliKategori;
-                kart.classList.toggle('gizli', !eslesme);
-                if (eslesme) gorunenSayisi++;
-            });
- 
-            // Hiç kart yoksa mesaj göster
-            bosMesaj.style.display = gorunenSayisi === 0 ? 'block' : 'none';
-        });
-    });
-   
- 
- 
+
     // ===== DARK MODE =====
-    const darkBtn = document.getElementById("darkModeBtn");
-    const body = document.body;
- 
-    if (localStorage.getItem("tema") === "dark") {
-        body.classList.add("dark-mode");
-        if (darkBtn) darkBtn.textContent = "☀️";
-    } else {
-        if (darkBtn) darkBtn.textContent = "🌙";
+    const darkBtn       = document.getElementById("darkModeBtn");
+    const darkBtnMobile = document.getElementById("darkModeBtnMobile");
+    const html          = document.documentElement;
+
+    function applyTheme(isDark) {
+        html.classList.toggle("dark", isDark);
+        const icon = isDark ? "☀️" : "🌙";
+        if (darkBtn)       darkBtn.textContent       = icon;
+        if (darkBtnMobile) darkBtnMobile.textContent = icon;
+        localStorage.setItem("tema", isDark ? "dark" : "light");
     }
- 
+
+    // Sayfa yüklenince kaydedilen temayı uygula
+    applyTheme(localStorage.getItem("tema") === "dark");
+
     if (darkBtn) {
         darkBtn.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-            if (body.classList.contains("dark-mode")) {
-                darkBtn.textContent = "☀️";
-                localStorage.setItem("tema", "dark");
-            } else {
-                darkBtn.textContent = "🌙";
-                localStorage.setItem("tema", "light");
-            }
+            applyTheme(!html.classList.contains("dark"));
         });
     }
- 
+
+    if (darkBtnMobile) {
+        darkBtnMobile.addEventListener("click", () => {
+            applyTheme(!html.classList.contains("dark"));
+        });
+    }
+
+
     // ===== MOBİL MENÜ =====
-    const menuBtn = document.getElementById("menuBtn");
+    const menuBtn    = document.getElementById("menuToggle") || document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    if (menuBtn) {
+
+    if (menuBtn && mobileMenu) {
         menuBtn.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
         });
     }
- 
+
+
+    // ===== DROPDOWN =====
+    const dropdownToggle = document.getElementById("dropdownToggle");
+    const dropdownMenu   = document.getElementById("dropdownMenu");
+
+    if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", () => {
+            dropdownMenu.classList.add("hidden");
+        });
+    }
+
+
+    // ===== DUYURU FİLTRELEME =====
+    const filtreButonlar = document.querySelectorAll(".filtre-btn");
+    const duyuruKartlar  = document.querySelectorAll(".duyuru-kart");
+    const bosMesaj       = document.getElementById("bos-mesaj");
+
+    filtreButonlar.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filtreButonlar.forEach(b => b.classList.remove("aktif"));
+            btn.classList.add("aktif");
+
+            const seciliKategori = btn.dataset.kategori;
+            let gorunenSayisi = 0;
+
+            duyuruKartlar.forEach(kart => {
+                const eslesme = seciliKategori === "tumu" || kart.dataset.kategori === seciliKategori;
+                kart.classList.toggle("gizli", !eslesme);
+                if (eslesme) gorunenSayisi++;
+            });
+
+            if (bosMesaj) bosMesaj.style.display = gorunenSayisi === 0 ? "block" : "none";
+        });
+    });
+
+
     // ===== FORM VALIDATION =====
     const iletisimForm = document.getElementById("iletisimForm");
+
     if (iletisimForm) {
         iletisimForm.addEventListener("submit", function (e) {
             e.preventDefault();
             formKontrol();
         });
     }
- 
+
     function formKontrol() {
         let gecerli = true;
-        const alanlar = ["adSoyad", "email", "konu", "mesaj"];
+        const alanlar     = ["adSoyad", "email", "konu", "mesaj"];
         const emailKurali = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
- 
+
         alanlar.forEach(id => {
             const input = document.getElementById(id);
-            const hata = document.getElementById(id + "Hata");
+            const hata  = document.getElementById(id + "Hata");
             const deger = input.value.trim();
- 
+
             if (deger === "") {
                 hataGoster(input, hata, "Bu alan boş bırakılamaz!");
                 gecerli = false;
@@ -95,14 +115,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
- 
+
         if (gecerli) {
             alert("Mesajınız başarıyla gönderildi! 🎉");
             iletisimForm.reset();
             alanlar.forEach(id => document.getElementById(id).classList.remove("border-green-500"));
         }
     }
- 
+
     function hataGoster(input, hata, mesaj) {
         input.classList.add("border-red-500");
         input.classList.remove("border-gray-300");
@@ -111,75 +131,58 @@ document.addEventListener("DOMContentLoaded", function () {
             hata.classList.remove("hidden");
         }
     }
- 
+
+
     // ===== LIGHTBOX =====
-    const overlay = document.getElementById("lightbox-overlay");
+    const overlay    = document.getElementById("lightbox-overlay");
     const lightboxImg = document.getElementById("lightbox-img");
-    const caption = document.getElementById("lightbox-caption");
-    const closeBtn = document.getElementById("lightbox-close");
-    const prevBtn = document.getElementById("lightbox-prev");
-    const nextBtn = document.getElementById("lightbox-next");
- 
-    let triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
+    const caption    = document.getElementById("lightbox-caption");
+    const closeBtn   = document.getElementById("lightbox-close");
+    const prevBtn    = document.getElementById("lightbox-prev");
+    const nextBtn    = document.getElementById("lightbox-next");
+
+    const triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
     let aktifIndex = 0;
- 
+
     function lightboxAc(index) {
         if (!triggers[index]) return;
         aktifIndex = index;
-        lightboxImg.src = triggers[index].src;
-        caption.textContent = triggers[index].dataset.caption || "";
+        lightboxImg.src      = triggers[index].src;
+        caption.textContent  = triggers[index].dataset.caption || "";
         overlay.classList.add("aktif");
         document.body.style.overflow = "hidden";
     }
- 
+
     function lightboxKapat() {
         overlay.classList.remove("aktif");
         document.body.style.overflow = "";
     }
- 
-    function sonraki() {
+
+    triggers.forEach((img, i) => img.addEventListener("click", () => lightboxAc(i)));
+
+    if (closeBtn) closeBtn.addEventListener("click", lightboxKapat);
+
+    if (nextBtn) nextBtn.addEventListener("click", () => {
         aktifIndex = (aktifIndex + 1) % triggers.length;
         lightboxAc(aktifIndex);
-    }
- 
-    function onceki() {
+    });
+
+    if (prevBtn) prevBtn.addEventListener("click", () => {
         aktifIndex = (aktifIndex - 1 + triggers.length) % triggers.length;
         lightboxAc(aktifIndex);
-    }
- 
-    triggers.forEach((img, i) => {
-        img.addEventListener("click", () => lightboxAc(i));
     });
- 
-    if (closeBtn) closeBtn.addEventListener("click", lightboxKapat);
-    if (nextBtn) nextBtn.addEventListener("click", sonraki);
-    if (prevBtn) prevBtn.addEventListener("click", onceki);
- 
+
     if (overlay) {
         overlay.addEventListener("click", (e) => {
             if (e.target === overlay) lightboxKapat();
         });
     }
- 
+
     document.addEventListener("keydown", (e) => {
         if (!overlay || !overlay.classList.contains("aktif")) return;
-        if (e.key === "Escape") lightboxKapat();
-        if (e.key === "ArrowRight") sonraki();
-        if (e.key === "ArrowLeft") onceki();
+        if (e.key === "Escape")     lightboxKapat();
+        if (e.key === "ArrowRight") { aktifIndex = (aktifIndex + 1) % triggers.length; lightboxAc(aktifIndex); }
+        if (e.key === "ArrowLeft")  { aktifIndex = (aktifIndex - 1 + triggers.length) % triggers.length; lightboxAc(aktifIndex); }
     });
- 
+
 });
- 
-const darkBtnMobile = document.getElementById("darkModeBtnMobile");
-if (darkBtnMobile) {
-    // Başlangıç ikonunu ayarla
-    darkBtnMobile.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
-   
-    darkBtnMobile.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-        const isDark = body.classList.contains("dark-mode");
-        darkBtnMobile.textContent = isDark ? "☀️" : "🌙";
-        if (darkBtn) darkBtn.textContent = isDark ? "☀️" : "🌙";
-        localStorage.setItem("tema", isDark ? "dark" : "light");
-    });
-}
