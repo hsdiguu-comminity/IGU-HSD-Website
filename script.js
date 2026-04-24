@@ -11,7 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (darkBtn)       darkBtn.textContent       = icon;
         if (darkBtnMobile) darkBtnMobile.textContent = icon;
         localStorage.setItem("tema", isDark ? "dark" : "light");
-    }
+
+        // Vanta efekti varsa rengini güncelle
+        if (window._vantaEffect) {
+            window._vantaEffect.setOptions({
+                backgroundColor: isDark ? 0x0d1117 : 0x04067c
+            });
+        }
+    }   // <-- applyTheme burada kapanıyor
 
     // Sayfa yüklenince kaydedilen temayı uygula
     applyTheme(localStorage.getItem("tema") === "dark");
@@ -134,12 +141,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ===== LIGHTBOX =====
-    const overlay    = document.getElementById("lightbox-overlay");
+    const overlay     = document.getElementById("lightbox-overlay");
     const lightboxImg = document.getElementById("lightbox-img");
-    const caption    = document.getElementById("lightbox-caption");
-    const closeBtn   = document.getElementById("lightbox-close");
-    const prevBtn    = document.getElementById("lightbox-prev");
-    const nextBtn    = document.getElementById("lightbox-next");
+    const caption     = document.getElementById("lightbox-caption");
+    const closeBtn    = document.getElementById("lightbox-close");
+    const prevBtn     = document.getElementById("lightbox-prev");
+    const nextBtn     = document.getElementById("lightbox-next");
 
     const triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
     let aktifIndex = 0;
@@ -147,8 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function lightboxAc(index) {
         if (!triggers[index]) return;
         aktifIndex = index;
-        lightboxImg.src      = triggers[index].src;
-        caption.textContent  = triggers[index].dataset.caption || "";
+        lightboxImg.src     = triggers[index].src;
+        caption.textContent = triggers[index].dataset.caption || "";
         overlay.classList.add("aktif");
         document.body.style.overflow = "hidden";
     }
