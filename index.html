@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSD Gelişim Üniversitesi</title>
+
+    
+    <!-- ✅ DOĞRU: CDN önce, config sonra -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -57,7 +65,7 @@
 </nav>
 
 <!-- HERO -->
-<header class="bg-gradient-to-br from-blue-500 to-blue-900 text-white text-center py-24">
+<header id="vanta-hero" class="text-white text-center py-24">
     <div class="max-w-7xl mx-auto px-4">
         <h1 class="text-4xl font-extrabold mb-4">HSD Gelişim'e Hoş Geldiniz</h1>
         <p class="text-xl text-blue-100">Geleceği birlikte inşa ediyoruz.</p>
@@ -290,8 +298,7 @@
         </div>
     </section>
 
-    <!-- KOMİTELER -->>
-
+    <!-- KOMİTELER -->
     <section id="komiteler" class="py-20 bg-white dark:bg-[#0d1117] transition-colors duration-300 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">Komitelerimiz</h2>
@@ -508,6 +515,24 @@
 
 </main>
 
-<script src="script.js"></script>
+<script>
+        window._vantaEffect = VANTA.NET({
+            el: "#vanta-hero",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,        // mavi nokta/çizgi rengi
+            backgroundColor: 0x04067c, // lacivert arka plan
+            points: 15,
+            maxDistance: 24,
+            spacing: 16
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
-</html>
+
+<div class="ambient-glow"></div>
