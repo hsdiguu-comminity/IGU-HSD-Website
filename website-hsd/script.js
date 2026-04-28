@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (darkBtnMobile) darkBtnMobile.textContent = icon;
         localStorage.setItem("tema", isDark ? "dark" : "light");
 
-        // Vanta efekti varsa rengini güncelle
+        // Vanta efekti varsa arka plan rengini güncelle
         if (window._vantaEffect) {
             window._vantaEffect.setOptions({
                 backgroundColor: isDark ? 0x0d1117 : 0x04067c
             });
         }
-    }   // <-- applyTheme burada kapanıyor
+    }
 
     // Sayfa yüklenince kaydedilen temayı uygula
     applyTheme(localStorage.getItem("tema") === "dark");
@@ -37,13 +37,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ===== MOBİL MENÜ =====
+    // Hem ana sayfa (#menuBtn → #mobileMenu / Tailwind .hidden)
+    // hem hakkımızda sayfası (#menuBtn → #menu / CSS .active) desteklenir.
     const menuBtn    = document.getElementById("menuToggle") || document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileMenu = document.getElementById("mobileMenu"); // Ana sayfa menüsü
+    const menu       = document.getElementById("menu");       // Hakkımızda sayfası menüsü
 
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
+    if (menuBtn) {
+        menuBtn.addEventListener("click", function () {
+            // Ana sayfa: Tailwind hidden class ile aç/kapat
+            if (mobileMenu) {
+                mobileMenu.classList.toggle("hidden");
+            }
+            // Hakkımızda sayfası: CSS .active class ile aç/kapat
+            if (menu) {
+                menu.classList.toggle("active");
+            }
         });
+
+        // Mobil menü linklerine tıklanınca menüyü kapat
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+            });
+        }
+        if (menu) {
+            menu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => menu.classList.remove("active"));
+            });
+        }
     }
 
 
@@ -98,13 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function formKontrol() {
-        let gecerli = true;
+        let gecerli   = true;
         const alanlar     = ["adSoyad", "email", "konu", "mesaj"];
         const emailKurali = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         alanlar.forEach(id => {
             const input = document.getElementById(id);
             const hata  = document.getElementById(id + "Hata");
+            if (!input) return; // Alan sayfada yoksa atla
+
             const deger = input.value.trim();
 
             if (deger === "") {
@@ -124,9 +148,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (gecerli) {
-            alert("Mesajınız başarıyla gönderildi! 🎉");
             iletisimForm.reset();
-            alanlar.forEach(id => document.getElementById(id).classList.remove("border-green-500"));
+            alanlar.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) input.classList.remove("border-green-500");
+            });
+
+            // Başarı mesajı göster (varsa inline banner, yoksa alert)
+            const basari = document.getElementById("form-basari");
+            if (basari) {
+                basari.classList.remove("hidden");
+                setTimeout(() => basari.classList.add("hidden"), 4000);
+            } else {
+                alert("Mesajınız başarıyla gönderildi! 🎉");
+            }
         }
     }
 
@@ -192,5 +227,4 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.key === "ArrowLeft")  { aktifIndex = (aktifIndex - 1 + triggers.length) % triggers.length; lightboxAc(aktifIndex); }
     });
 
-}); // <-- DOMContentLoaded burada kapanıyor
-
+});
