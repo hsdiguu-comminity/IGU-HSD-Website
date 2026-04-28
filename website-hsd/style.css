@@ -612,3 +612,9 @@ header { /* Veya navbar class'ın hangisiyse */
     z-index: -1; /* En arkada durması için */
     pointer-events: none; /* Tıklamaları engellemez */
 }
+
+
+/* Komiteler — light mode arka plan */
+html:not(.dark) #komiteler {
+    background-color: #f3f4f6 !important; /* Tailwind gray-100 */
+}
