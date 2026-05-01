@@ -618,3 +618,111 @@ header { /* Veya navbar class'ın hangisiyse */
 html:not(.dark) #komiteler {
     background-color: #f3f4f6 !important; /* Tailwind gray-100 */
 }
+/* ================================================
+    BLOG + DUYURU FILTRE 
+   ================================================ */
+
+/* BLOG KARTLARI */
+.blog-kart {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dbeafe !important;
+  border-radius: 1rem !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, box-shadow;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.blog-kart:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: #93c5fd !important;
+  box-shadow:
+    0 20px 40px rgba(30, 64, 175, 0.18),
+    0 0 0 1px rgba(147, 197, 253, 0.25);
+}
+
+.blog-kart img {
+  transition: transform 0.45s ease, filter 0.35s ease;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.blog-kart:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.03);
+}
+
+/* DUYURU FILTRE BUTONLARI */
+.filtre-btn {
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #475569 !important;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.filtre-btn:hover {
+  background: #eff6ff !important;
+  border-color: #93c5fd !important;
+  color: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+.filtre-btn:active {
+  transform: scale(0.96);
+}
+
+.filtre-btn.aktif {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.26);
+}
+
+/* DUYURU KARTLARI */
+.duyuru-kart {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.duyuru-kart:hover {
+  transform: translateY(-4px);
+  border-color: #bfdbfe !important;
+  box-shadow: 0 12px 26px rgba(29, 78, 216, 0.12);
+}
+
+.duyuru-kart.gizli {
+  display: none !important;
+}
+
+/* DARK MODE UYUMLULUK */
+html.dark .blog-kart {
+  background: rgba(30, 41, 59, 0.78) !important;
+  border-color: #334155 !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .blog-kart:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(96, 165, 250, 0.3);
+}
+
+html.dark .filtre-btn {
+  background: #1e293b !important;
+  color: #cbd5e1 !important;
+  border-color: #475569 !important;
+}
+
+html.dark .filtre-btn:hover {
+  background: #0f172a !important;
+  color: #93c5fd !important;
+  border-color: #60a5fa !important;
+}
+
+html.dark .filtre-btn.aktif {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
+  color: #ffffff !important;
+  border-color: #60a5fa !important;
+}
