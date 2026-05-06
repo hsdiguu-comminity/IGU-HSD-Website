@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komite Detay – HSD Gelişim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="grup2_ekip.css" />
+</head>
+<body class="bg-white dark:bg-[#0d1117] transition-colors duration-300">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#04067c] sticky top-0 z-50 py-4">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center">
+                <img src="../hsd-logo-white.png" alt="HSD Logo" class="h-10 mr-2">
+            </a>
+            <div class="hidden lg:flex items-center gap-6">
+                <ul class="flex items-center gap-6">
+                    <li><a href="../index.html#bu-hafta"   class="text-white font-medium hover:text-gray-300 transition">Bülten</a></li>
+                    <li><a href="../index.html#duyurular"  class="text-white font-medium hover:text-gray-300 transition">Duyurular</a></li>
+                    <li><a href="../index.html#blog"       class="text-white font-medium hover:text-gray-300 transition">Blog</a></li>
+                    <li><a href="../index.html#hakkimizda" class="text-white font-medium hover:text-gray-300 transition">Hakkımızda</a></li>
+                    <li><a href="../index.html#komiteler"  class="text-white font-medium hover:text-gray-300 transition">Komiteler</a></li>
+                    <li><a href="ekibimiz.html"            class="text-white font-medium hover:text-gray-300 transition">Ekibimiz</a></li>
+                    <li><a href="../index.html#iletisim"   class="text-white font-medium hover:text-gray-300 transition">İletişim</a></li>
+                </ul>
+                <a href="https://www.gelisim.edu.tr" target="_blank">
+                    <img src="../igu.png" alt="IGU Logo" class="h-10 ml-4">
+                </a>
+                <button id="darkModeBtn" class="text-2xl bg-transparent border-none cursor-pointer text-white ml-2">🌙</button>
+            </div>
+            <button id="menuToggle" class="lg:hidden text-white text-2xl bg-transparent border-none cursor-pointer">☰</button>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 flex flex-col gap-3">
+            <a href="../index.html#bu-hafta"   class="text-white font-medium">Bülten</a>
+            <a href="../index.html#duyurular"  class="text-white font-medium">Duyurular</a>
+            <a href="../index.html#blog"       class="text-white font-medium">Blog</a>
+            <a href="../index.html#hakkimizda" class="text-white font-medium">Hakkımızda</a>
+            <a href="../index.html#komiteler"  class="text-white font-medium">Komiteler</a>
+            <a href="ekibimiz.html"            class="text-white font-medium">Ekibimiz</a>
+            <a href="../index.html#iletisim"   class="text-white font-medium">İletişim</a>
+            <button id="darkModeBtnMobile" class="text-2xl bg-transparent border-none cursor-pointer text-white w-fit">🌙</button>
+        </div>
+    </nav>
+
+    <!-- HERO (JS tarafından doldurulur) -->
+    <header id="komiteHero" class="komite-hero text-white text-center py-20">
+        <div class="max-w-3xl mx-auto px-4">
+            <a href="ekibimiz.html" class="inline-flex items-center gap-2 text-blue-200 text-sm font-medium hover:text-white transition mb-6">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                Tüm Ekip
+            </a>
+            <div id="heroIcon" class="text-5xl mb-4"></div>
+            <h1 id="heroBaslik" class="text-4xl font-extrabold mb-3">Komite</h1>
+            <p id="heroAltBaslik" class="text-blue-100 text-lg"></p>
+            <div id="heroBanner" class="h-1 w-24 rounded-full mx-auto mt-6 opacity-80"></div>
+        </div>
+    </header>
+
+    <!-- ÜYE KARTLARI -->
+    <section class="py-20 bg-white dark:bg-[#0d1117]">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Komite Üyeleri</h2>
+            <div id="altCizgi" class="w-12 h-1 bg-pink-500 mx-auto mb-16 rounded"></div>
+
+            <!-- Üye Grid -->
+            <div id="uyeGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- JS tarafından doldurulur -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL / POPUP -->
+    <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-[#1a1e23] rounded-3xl shadow-2xl w-full max-w-sm mx-4 p-8 relative animate-fadeIn">
+            <button id="modalKapat" class="absolute top-4 right-5 text-gray-400 hover:text-gray-600 dark:hover:text-white text-2xl font-bold transition">×</button>
+            <div id="modalIcerik" class="text-center"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#04067c] text-white py-8 text-center">
+        <p class="text-sm text-blue-200">© 2025 HSD Gelişim – İstanbul Gelişim Üniversitesi</p>
+    </footer>
+
+    <script>
+    // =====================================================
+    //  KOMİTE VERİLERİ
+    //  Ebrar: Üye isimlerini, bölümlerini, resim dosyalarını
+    //  ve LinkedIn linklerini buraya ekleyin.
+    // =====================================================
+    const KOMİTELER = {
+        "sosyal-medya": {
+            icon: "📱",
+            ad: "Sosyal Medya",
+            altBaslik: "& İçerik Komitesi",
+            renk: "#e91e8c",
+            bannerClass: "banner-sosyal",
+            uyeler: [
+                // { isim: "Ad Soyad", bolum: "Bölüm Adı", resim: "adsoyad.jpeg", linkedin: "https://linkedin.com/in/..." },
+                { isim: "Üye 1", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 2", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 3", bolum: "Endüstri Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 4", bolum: "İletişim Bilimleri", resim: "", linkedin: "" },
+                { isim: "Üye 5", bolum: "Grafik Tasarım", resim: "", linkedin: "" },
+                { isim: "Üye 6", bolum: "İşletme", resim: "", linkedin: "" },
+                { isim: "Üye 7", bolum: "Halkla İlişkiler", resim: "", linkedin: "" },
+                { isim: "Üye 8", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+            ]
+        },
+        "organizasyon": {
+            icon: "🎪",
+            ad: "Organizasyon",
+            altBaslik: "& Etkinlik Komitesi",
+            renk: "#00897b",
+            bannerClass: "banner-etkinlik",
+            uyeler: [
+                { isim: "Üye 1", bolum: "İşletme", resim: "", linkedin: "" },
+                { isim: "Üye 2", bolum: "Turizm Yönetimi", resim: "", linkedin: "" },
+                { isim: "Üye 3", bolum: "Halkla İlişkiler", resim: "", linkedin: "" },
+                { isim: "Üye 4", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 5", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 6", bolum: "İletişim Bilimleri", resim: "", linkedin: "" },
+                { isim: "Üye 7", bolum: "Endüstri Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 8", bolum: "Grafik Tasarım", resim: "", linkedin: "" },
+            ]
+        },
+        "sponsorluk": {
+            icon: "🤝",
+            ad: "Sponsorluk",
+            altBaslik: "& Dış İlişkiler Komitesi",
+            renk: "#f57c00",
+            bannerClass: "banner-sponsorluk",
+            uyeler: [
+                { isim: "Üye 1", bolum: "İşletme", resim: "", linkedin: "" },
+                { isim: "Üye 2", bolum: "Uluslararası İlişkiler", resim: "", linkedin: "" },
+                { isim: "Üye 3", bolum: "Hukuk", resim: "", linkedin: "" },
+                { isim: "Üye 4", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 5", bolum: "Endüstri Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 6", bolum: "İletişim Bilimleri", resim: "", linkedin: "" },
+                { isim: "Üye 7", bolum: "Halkla İlişkiler", resim: "", linkedin: "" },
+                { isim: "Üye 8", bolum: "İşletme", resim: "", linkedin: "" },
+            ]
+        },
+        "teknik": {
+            icon: "💻",
+            ad: "Teknik Ekip",
+            altBaslik: "& Ar-Ge Komitesi",
+            renk: "#6c3fc5",
+            bannerClass: "banner-teknik",
+            uyeler: [
+                { isim: "Üye 1", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 2", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 3", bolum: "Elektrik-Elektronik Müh.", resim: "", linkedin: "" },
+                { isim: "Üye 4", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 5", bolum: "Yapay Zeka ve Veri", resim: "", linkedin: "" },
+                { isim: "Üye 6", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 7", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 8", bolum: "Endüstri Mühendisliği", resim: "", linkedin: "" },
+            ]
+        },
+        "medium": {
+            icon: "✍️",
+            ad: "Medium İçerik",
+            altBaslik: "& Üretim Komitesi",
+            renk: "#00b074",
+            bannerClass: "banner-medium",
+            uyeler: [
+                { isim: "Üye 1", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 2", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 3", bolum: "İletişim Bilimleri", resim: "", linkedin: "" },
+                { isim: "Üye 4", bolum: "İşletme", resim: "", linkedin: "" },
+                { isim: "Üye 5", bolum: "Bilgisayar Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 6", bolum: "Halkla İlişkiler", resim: "", linkedin: "" },
+                { isim: "Üye 7", bolum: "Yazılım Mühendisliği", resim: "", linkedin: "" },
+                { isim: "Üye 8", bolum: "Endüstri Mühendisliği", resim: "", linkedin: "" },
+            ]
+        }
+    };
+
+    // =====================================================
+    //  SAYFA OLUŞTURMA
+    // =====================================================
+    const params = new URLSearchParams(window.location.search);
+    const komiteKey = params.get('komite') || 'sosyal-medya';
+    const komite = KOMİTELER[komiteKey] || KOMİTELER['sosyal-medya'];
+
+    // Hero doldur
+    document.getElementById('heroIcon').textContent = komite.icon;
+    document.getElementById('heroBaslik').textContent = komite.ad;
+    document.getElementById('heroAltBaslik').textContent = komite.altBaslik;
+    document.getElementById('heroBanner').classList.add(komite.bannerClass);
+    document.getElementById('altCizgi').style.background = komite.renk;
+    document.title = komite.ad + ' Komitesi – HSD Gelişim';
+
+    // Üye kartları oluştur
+    const grid = document.getElementById('uyeGrid');
+    komite.uyeler.forEach((uye, i) => {
+        const initials = uye.isim.split(' ').map(n => n[0]).join('').toUpperCase();
+        const avatarUrl = uye.resim
+            ? `../assets/img/ekip/${komiteKey}/${uye.resim}`
+            : `https://ui-avatars.com/api/?name=${encodeURIComponent(uye.isim)}&background=${komite.renk.replace('#','')}&color=fff&size=120`;
+
+        const kart = document.createElement('div');
+        kart.className = 'bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform cursor-pointer group';
+        kart.style.animationDelay = `${i * 0.06}s`;
+        kart.innerHTML = `
+            <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 border-2" style="border-color:${komite.renk}">
+                <img src="${avatarUrl}"
+                     alt="${uye.isim}"
+                     class="w-full h-full object-cover"
+                     onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(uye.isim)}&background=${komite.renk.replace('#','')}&color=fff&size=120'">
+            </div>
+            <h5 class="font-bold text-blue-900 dark:text-white text-sm mb-1">${uye.isim}</h5>
+            <span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background:${komite.renk}18; color:${komite.renk}">${uye.bolum}</span>
+            ${uye.linkedin ? `<p class="text-xs text-gray-400 mt-2 group-hover:text-blue-500 transition">LinkedIn →</p>` : ''}
+        `;
+        kart.addEventListener('click', () => acModal(uye, avatarUrl, komite.renk));
+        grid.appendChild(kart);
+    });
+
+    // =====================================================
+    //  MODAL / POPUP
+    // =====================================================
+    const modal = document.getElementById('modal');
+    const modalIcerik = document.getElementById('modalIcerik');
+
+    function acModal(uye, avatarUrl, renk) {
+        modalIcerik.innerHTML = `
+            <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-5 border-4" style="border-color:${renk}">
+                <img src="${avatarUrl}" alt="${uye.isim}" class="w-full h-full object-cover"
+                     onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(uye.isim)}&background=${renk.replace('#','')}&color=fff&size=112'">
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">${uye.isim}</h3>
+            <span class="text-sm font-medium px-4 py-1 rounded-full inline-block mb-4" style="background:${renk}20; color:${renk}">${uye.bolum}</span>
+            ${uye.linkedin
+                ? `<div class="mt-4">
+                     <a href="${uye.linkedin}" target="_blank"
+                        class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold px-5 py-2 rounded-full transition">
+                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                         LinkedIn Profili
+                     </a>
+                   </div>`
+                : `<p class="text-sm text-gray-400 mt-2">LinkedIn profili henüz eklenmedi.</p>`
+            }
+        `;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    document.getElementById('modalKapat').addEventListener('click', kapat);
+    modal.addEventListener('click', (e) => { if (e.target === modal) kapat(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') kapat(); });
+    function kapat() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+
+    // =====================================================
+    //  DARK MODE & MENÜ
+    // =====================================================
+
+    const htmlEl = document.documentElement;
+    const btns = [document.getElementById('darkModeBtn'), document.getElementById('darkModeBtnMobile')];
+    
+    if (localStorage.getItem('tema') === 'dark') { 
+        htmlEl.classList.add('dark'); 
+        btns.forEach(b => b && (b.textContent = '☀️')); 
+    }
+    
+    btns.forEach(btn => btn && btn.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        const isDark = htmlEl.classList.contains('dark');
+        localStorage.setItem('tema', isDark ? 'dark' : 'light');
+        btns.forEach(b => b && (b.textContent = isDark ? '☀️' : '🌙'));
+    }));
+
+    const menuToggle = document.getElementById('menuToggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    }
+
+    </script>
+</body>
+</html>
