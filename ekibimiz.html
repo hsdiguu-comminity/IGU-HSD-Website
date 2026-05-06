@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ekibimiz – HSD Gelişim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="grup2_ekip.css" />
+</head>
+<body class="bg-white dark:bg-[#0d1117] transition-colors duration-300">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#04067c] sticky top-0 z-50 py-4">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center">
+                <img src="../hsd-logo-white.png" alt="HSD Logo" class="h-10 mr-2">
+            </a>
+            <!-- Desktop Menü -->
+            <div class="hidden lg:flex items-center gap-6">
+                <ul class="flex items-center gap-6">
+                    <li><a href="../index.html#bu-hafta"   class="text-white font-medium hover:text-gray-300 transition">Bülten</a></li>
+                    <li><a href="../index.html#duyurular"  class="text-white font-medium hover:text-gray-300 transition">Duyurular</a></li>
+                    <li><a href="../index.html#blog"       class="text-white font-medium hover:text-gray-300 transition">Blog</a></li>
+                    <li><a href="../index.html#hakkimizda" class="text-white font-medium hover:text-gray-300 transition">Hakkımızda</a></li>
+                    <li><a href="../index.html#komiteler"  class="text-white font-medium hover:text-gray-300 transition">Komiteler</a></li>
+                    <li><a href="ekibimiz.html"            class="text-yellow-300 font-semibold transition">Ekibimiz</a></li>
+                    <li><a href="../index.html#iletisim"   class="text-white font-medium hover:text-gray-300 transition">İletişim</a></li>
+                </ul>
+                <a href="https://www.gelisim.edu.tr" target="_blank">
+                    <img src="../igu.png" alt="IGU Logo" class="h-10 ml-4">
+                </a>
+                <button id="darkModeBtn" class="text-2xl bg-transparent border-none cursor-pointer text-white ml-2">🌙</button>
+            </div>
+            <!-- Mobil Hamburger -->
+            <button id="menuToggle" class="lg:hidden text-white text-2xl bg-transparent border-none cursor-pointer">☰</button>
+        </div>
+        <!-- Mobil Menü -->
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 flex flex-col gap-3">
+            <a href="../index.html#bu-hafta"   class="text-white font-medium">Bülten</a>
+            <a href="../index.html#duyurular"  class="text-white font-medium">Duyurular</a>
+            <a href="../index.html#blog"       class="text-white font-medium">Blog</a>
+            <a href="../index.html#hakkimizda" class="text-white font-medium">Hakkımızda</a>
+            <a href="../index.html#komiteler"  class="text-white font-medium">Komiteler</a>
+            <a href="ekibimiz.html"            class="text-yellow-300 font-semibold">Ekibimiz</a>
+            <a href="../index.html#iletisim"   class="text-white font-medium">İletişim</a>
+            <button id="darkModeBtnMobile" class="text-2xl bg-transparent border-none cursor-pointer text-white w-fit">🌙</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="komite-hero text-white text-center py-20">
+        <div class="max-w-3xl mx-auto px-4">
+            <p class="text-blue-200 text-sm font-semibold uppercase tracking-widest mb-3">HSD Gelişim</p>
+            <h1 class="text-4xl font-extrabold mb-4">Ekibimiz</h1>
+            <p class="text-blue-100 text-lg">40 kişilik güçlü Core Team'imizi ve komitelerimizi keşfedin.</p>
+        </div>
+    </header>
+
+    <!-- YÖNETİM KURULU -->
+    <section class="py-20 bg-white dark:bg-[#0d1117]">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Yönetim Kurulu</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-4 rounded"></div>
+            <p class="text-center text-gray-400 text-sm mb-16">Topluluğumuzu yöneten harika insanlar</p>
+
+            <!-- ELÇİ -->
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200 dark:to-gray-700"></div>
+                <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Elçi</span>
+                <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200 dark:to-gray-700"></div>
+            </div>
+            <div class="flex justify-center mb-12">
+                <div class="bg-white dark:bg-[#1a1e23] border-2 border-yellow-400 rounded-2xl p-8 text-center w-64 relative shadow-yellow-100 shadow-lg hover:-translate-y-2 transition-transform">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
+                    <div class="w-24 h-24 rounded-full border-4 border-yellow-400 overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/nurgul.jpeg" alt="Nurgül Yıldız" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Nurgul+Yildiz&background=fbbf24&color=fff&size=96'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white">Nurgül Yıldız</h5>
+                    <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi</span>
+                </div>
+            </div>
+
+            <!-- ELÇİ YARDIMCILARI -->
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200 dark:to-gray-700"></div>
+                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Elçi Yardımcıları</span>
+                <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200 dark:to-gray-700"></div>
+            </div>
+            <div class="flex justify-center gap-6 mb-16 flex-wrap">
+                <div class="bg-white dark:bg-[#1a1e23] border border-blue-200 dark:border-blue-900 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
+                    <div class="w-20 h-20 rounded-full border-2 border-blue-800 overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/furkanerden.jpeg" alt="Furkan Erden" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Furkan+Erden&background=1d4ed8&color=fff&size=80'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white text-sm">Furkan Erden</h5>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi Yardımcısı</span>
+                </div>
+                <div class="bg-white dark:bg-[#1a1e23] border border-blue-200 dark:border-blue-900 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
+                    <div class="w-20 h-20 rounded-full border-2 border-blue-800 overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/irmak.jpeg" alt="Irmak Gündüz" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Irmak+Gunduz&background=1d4ed8&color=fff&size=80'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white text-sm">Irmak Gündüz</h5>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi Yardımcısı</span>
+                </div>
+            </div>
+
+            <!-- KULÜP BAŞKANLARI -->
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200 dark:to-gray-700"></div>
+                <span class="bg-green-100 text-green-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Kulüp Başkanları</span>
+                <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200 dark:to-gray-700"></div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-[#1a1e23] border border-teal-200 dark:border-teal-900 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/alp.jpeg" alt="Ali Alp Kocaoğlu" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Ali+Alp&background=0d9488&color=fff&size=80'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white text-sm">Ali Alp Kocaoğlu</h5>
+                    <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Web Sitesi Proje Lideri</span>
+                    <span class="block text-gray-400 text-xs italic mt-2">Kulüp 1</span>
+                </div>
+                <div class="bg-white dark:bg-[#1a1e23] border border-teal-200 dark:border-teal-900 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/eren.jpeg" alt="Eren Baksoy" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Eren+Baksoy&background=0d9488&color=fff&size=80'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white text-sm">Eren Baksoy</h5>
+                    <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Oyun Proje Lideri</span>
+                    <span class="block text-gray-400 text-xs italic mt-2">Kulüp 2</span>
+                </div>
+                <div class="bg-white dark:bg-[#1a1e23] border border-teal-200 dark:border-teal-900 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/yaren.jpeg" alt="Yaren Timur" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Yaren+Timur&background=0d9488&color=fff&size=80'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white text-sm">Yaren Timur</h5>
+                    <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Sosyal Medya Lideri</span>
+                    <span class="block text-gray-400 text-xs italic mt-2">Kulüp 3</span>
+                </div>
+                <div class="bg-white dark:bg-[#1a1e23] border border-teal-200 dark:border-teal-900 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
+                        <img src="../assets/img/ekip/damla.jpeg" alt="Damla Muyan" class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Damla+Muyan&background=0d9488&color=fff&size=80'">
+                    </div>
+                    <h5 class="font-bold text-blue-900 dark:text-white text-sm">Damla Muyan</h5>
+                    <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Etkinlik Lideri</span>
+                    <span class="block text-gray-400 text-xs italic mt-2">Kulüp 4</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KOMİTE KARTLARI -->
+    <section class="py-20 bg-gray-50 dark:bg-[#111827]">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Komitelerimiz</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-4 rounded"></div>
+            <p class="text-center text-gray-400 text-sm mb-16">Her komiteyi keşfetmek için kartlara tıklayın</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Sosyal Medya Komitesi -->
+                <a href="komite-detay.html?komite=sosyal-medya" class="komite-kart group block bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-pink-500/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-orange-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10" style="background: linear-gradient(135deg,#fce7f3,#fed7aa)">📱</div>
+                    <div class="banner-sosyal h-1 rounded-full mb-6 relative z-10"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 relative z-10">Sosyal Medya</h3>
+                    <p class="text-xs font-semibold text-pink-500 uppercase tracking-wider mb-4 relative z-10">& İçerik</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">HSD Gelişim'in dijital sesini yönetir. Instagram, LinkedIn ve diğer platformlarda özgün görsel ve video içerikler üreterek topluluğumuzun erişimini genişletir.</p>
+                    <div class="mt-auto border-t border-gray-200 dark:border-gray-800 pt-6 relative z-10 flex items-center justify-between">
+                        <span class="text-sm text-gray-400">Üyeleri Gör</span>
+                        <span class="inline-flex items-center gap-2 text-pink-500 font-bold text-sm group-hover:gap-3 transition-all">
+                            Ekibi Gör <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Organizasyon & Etkinlik Komitesi -->
+                <a href="komite-detay.html?komite=organizasyon" class="komite-kart group block bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10" style="background: linear-gradient(135deg,#d1fae5,#a7f3d0)">🎪</div>
+                    <div class="banner-etkinlik h-1 rounded-full mb-6 relative z-10"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 relative z-10">Organizasyon</h3>
+                    <p class="text-xs font-semibold text-green-500 uppercase tracking-wider mb-4 relative z-10">& Etkinlik</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">Konferanslardan workshoplara, networking gecelerinden teknik zirvelere kadar tüm HSD etkinliklerinin kusursuzca planlanması ve yürütülmesini sağlar.</p>
+                    <div class="mt-auto border-t border-gray-200 dark:border-gray-800 pt-6 relative z-10 flex items-center justify-between">
+                        <span class="text-sm text-gray-400">Üyeleri Gör</span>
+                        <span class="inline-flex items-center gap-2 text-green-500 font-bold text-sm group-hover:gap-3 transition-all">
+                            Ekibi Gör <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Sponsorluk & Dış İlişkiler -->
+                <a href="komite-detay.html?komite=sponsorluk" class="komite-kart group block bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-yellow-500/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-orange-300/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10" style="background: linear-gradient(135deg,#fef3c7,#fde68a)">🤝</div>
+                    <div class="banner-sponsorluk h-1 rounded-full mb-6 relative z-10"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 relative z-10">Sponsorluk</h3>
+                    <p class="text-xs font-semibold text-yellow-600 uppercase tracking-wider mb-4 relative z-10">& Dış İlişkiler</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">Sektördeki firmalar ve kurumlarla stratejik ortaklıklar kurar. Etkinlikler ve projeler için sponsorluk süreçlerini yöneterek topluluğun sürdürülebilirliğini sağlar.</p>
+                    <div class="mt-auto border-t border-gray-200 dark:border-gray-800 pt-6 relative z-10 flex items-center justify-between">
+                        <span class="text-sm text-gray-400">Üyeleri Gör</span>
+                        <span class="inline-flex items-center gap-2 text-yellow-500 font-bold text-sm group-hover:gap-3 transition-all">
+                            Ekibi Gör <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Teknik Ekip -->
+                <a href="komite-detay.html?komite=teknik" class="komite-kart group block bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10" style="background: linear-gradient(135deg,#ede9fe,#ddd6fe)">💻</div>
+                    <div class="banner-teknik h-1 rounded-full mb-6 relative z-10"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 relative z-10">Teknik Ekip</h3>
+                    <p class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-4 relative z-10">& Ar-Ge</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">HSD'nin dijital altyapısını geliştirir. Hackathonlar organize eder ve üyelere teknik mentorluk sunarak yazılım kültürünü destekler.</p>
+                    <div class="mt-auto border-t border-gray-200 dark:border-gray-800 pt-6 relative z-10 flex items-center justify-between">
+                        <span class="text-sm text-gray-400">Üyeleri Gör</span>
+                        <span class="inline-flex items-center gap-2 text-indigo-400 font-bold text-sm group-hover:gap-3 transition-all">
+                            Ekibi Gör <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Medium İçerik -->
+                <a href="komite-detay.html?komite=medium" class="komite-kart group block bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-teal-500/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-green-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10" style="background: linear-gradient(135deg,#d1fae5,#ccfbf1)">✍️</div>
+                    <div class="banner-medium h-1 rounded-full mb-6 relative z-10"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 relative z-10">Medium İçerik</h3>
+                    <p class="text-xs font-semibold text-teal-400 uppercase tracking-wider mb-4 relative z-10">& Üretim</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">HSD üyelerinin teknik tecrübelerini ve proje deneyimlerini profesyonel makalelere dönüştürür. Bilgi birikimini global kitleye sunar.</p>
+                    <div class="mt-auto border-t border-gray-200 dark:border-gray-800 pt-6 relative z-10 flex items-center justify-between">
+                        <span class="text-sm text-gray-400">Üyeleri Gör</span>
+                        <span class="inline-flex items-center gap-2 text-teal-400 font-bold text-sm group-hover:gap-3 transition-all">
+                            Ekibi Gör <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#04067c] text-white py-8 text-center">
+        <p class="text-sm text-blue-200">© 2025 HSD Gelişim – İstanbul Gelişim Üniversitesi</p>
+    </footer>
+
+    <!-- DARK MODE & MENÜ JS -->
+    <script>
+    // Dark mode
+        const html = document.documentElement;
+        const btns = [document.getElementById('darkModeBtn'), document.getElementById('darkModeBtnMobile')];
+        
+        // 'tema' anahtarını kullan (index.html ile aynı)
+        if (localStorage.getItem('tema') === 'dark') { 
+            html.classList.add('dark'); 
+            btns.forEach(b => b && (b.textContent = '☀️')); 
+        }
+        
+        btns.forEach(btn => btn && btn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('tema', isDark ? 'dark' : 'light');
+            btns.forEach(b => b && (b.textContent = isDark ? '☀️' : '🌙'));
+            
+            // Vanta efekti varsa (ekibimiz sayfasında olmayabilir)
+            if (window._vantaEffect) {
+                window._vantaEffect.setOptions({
+                    backgroundColor: isDark ? 0x0d1117 : 0x04067c
+                });
+            }
+        }));
+
+        // Mobil menü
+        const menuToggle = document.getElementById('menuToggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
