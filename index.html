@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSD Gelişim Üniversitesi</title>
 
-    
-    <!-- ✅ DOĞRU: CDN önce, config sonra -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { darkMode: 'class' }
     </script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -40,7 +44,7 @@
                 <li><a href="#duyurular"  class="text-white font-medium hover:text-gray-300 transition">Duyurular</a></li>
                 <li><a href="#blog"       class="text-white font-medium hover:text-gray-300 transition">Blog</a></li>
                 <li><a href="#hakkimizda" class="text-white font-medium hover:text-gray-300 transition">Hakkımızda</a></li>
-                <li><a href="#komiteler" class="text-white font-medium hover:text-gray-300 transition">Komiteler</a></li>
+                <li><a href="#komiteler"  class="text-white font-medium hover:text-gray-300 transition">Komiteler</a></li>
                 <li><a href="#ekibimiz"   class="text-white font-medium hover:text-gray-300 transition">Ekibimiz</a></li>
                 <li><a href="#iletisim"   class="text-white font-medium hover:text-gray-300 transition">İletişim</a></li>
             </ul>
@@ -57,7 +61,7 @@
         <a href="#duyurular"  class="text-white font-medium">Duyurular</a>
         <a href="#blog"       class="text-white font-medium">Blog</a>
         <a href="#hakkimizda" class="text-white font-medium">Hakkımızda</a>
-        <a href="#komiteler" class="text-gray-200 hover:text-white text-sm font-medium transition-colors">Komiteler</a>        
+        <a href="#komiteler"  class="text-gray-200 hover:text-white text-sm font-medium transition-colors">Komiteler</a>        
         <a href="#ekibimiz"   class="text-white font-medium">Ekibimiz</a>
         <a href="#iletisim"   class="text-white font-medium">İletişim</a>
         <button id="darkModeBtnMobile" class="text-2xl bg-transparent border-none cursor-pointer text-white w-fit">🌙</button>
@@ -67,8 +71,17 @@
 <!-- HERO -->
 <header id="vanta-hero" class="text-white text-center py-24">
     <div class="max-w-7xl mx-auto px-4">
-        <h1 class="text-4xl font-extrabold mb-4">HSD Gelişim'e Hoş Geldiniz</h1>
-        <p class="text-xl text-blue-100">Geleceği birlikte inşa ediyoruz.</p>
+
+        <!-- Lottie animasyonu (lottiefiles.com'dan URL değiştirilebilir) -->
+        <div id="lottie-hero" class="w-32 h-32 mx-auto mb-4"></div>
+
+        <!-- Animate.css: giriş animasyonları -->
+        <h1 class="text-4xl font-extrabold mb-4 animate__animated animate__fadeInDown">
+            HSD Gelişim'e Hoş Geldiniz
+        </h1>
+        <p class="text-xl text-blue-100 animate__animated animate__fadeInUp animate__delay-1s">
+            Geleceği birlikte inşa ediyoruz.
+        </p>
     </div>
 </header>
 
@@ -86,20 +99,22 @@
     <!-- BÜLTEN -->
     <section id="bu-hafta" class="py-20 bg-gray-100 border-b scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">HSD Bülten</h2>
-            <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded"></div>
-            <p class="text-center text-gray-600">Haftalık bülten, Medium yazıları ve öne çıkan etkinlikler.</p>
+            <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">HSD Bülten</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="text-center text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                Haftalık bülten, Medium yazıları ve öne çıkan etkinlikler.
+            </p>
         </div>
     </section>
 
     <!-- DUYURULAR -->
     <section id="duyurular" class="py-20 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">Duyurular</h2>
-            <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded"></div>
+            <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Duyurular</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-8 rounded" data-aos="fade-up" data-aos-delay="100"></div>
 
             <!-- Filtre Butonları -->
-            <div class="flex flex-wrap gap-2 mb-6">
+            <div class="flex flex-wrap gap-2 mb-6" data-aos="fade-up" data-aos-delay="150">
                 <button class="filtre-btn aktif px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="tumu">Tümü</button>
                 <button class="filtre-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="etkinlik">Etkinlik</button>
                 <button class="filtre-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 text-sm font-medium cursor-pointer transition-all" data-kategori="duyuru">Duyuru</button>
@@ -110,7 +125,7 @@
             <!-- Duyuru Kartları -->
             <div id="duyuru-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="etkinlik">
+                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="etkinlik" data-aos="fade-up" data-aos-delay="0">
                     <div class="flex justify-between items-start mb-2">
                         <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-800">Etkinlik</span>
                         <span class="text-xs text-gray-400">10 Nis 2025</span>
@@ -119,7 +134,7 @@
                     <p class="text-sm text-gray-500">48 saatlik yapay zeka odaklı hackathon etkinliğimize katılmak için kayıt olun.</p>
                 </div>
 
-                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="duyuru">
+                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="duyuru" data-aos="fade-up" data-aos-delay="80">
                     <div class="flex justify-between items-start mb-2">
                         <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-800">Duyuru</span>
                         <span class="text-xs text-gray-400">8 Nis 2025</span>
@@ -128,7 +143,7 @@
                     <p class="text-sm text-gray-500">2025-2026 dönemi için HSD Gelişim üye başvuruları başladı.</p>
                 </div>
 
-                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="egitim">
+                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="egitim" data-aos="fade-up" data-aos-delay="160">
                     <div class="flex justify-between items-start mb-2">
                         <span class="text-xs font-semibold px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">Eğitim</span>
                         <span class="text-xs text-gray-400">5 Nis 2025</span>
@@ -137,7 +152,7 @@
                     <p class="text-sm text-gray-500">Pandas, matplotlib ve sklearn ile uygulamalı eğitim.</p>
                 </div>
 
-                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="proje">
+                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="proje" data-aos="fade-up" data-aos-delay="0">
                     <div class="flex justify-between items-start mb-2">
                         <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-100 text-pink-800">Proje</span>
                         <span class="text-xs text-gray-400">2 Nis 2025</span>
@@ -146,7 +161,7 @@
                     <p class="text-sm text-gray-500">Frontend ve backend geliştirici arayışındayız. Başvurular 15 Nisan'a kadar açık.</p>
                 </div>
 
-                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="etkinlik">
+                <div class="duyuru-kart bg-white border border-gray-200 rounded-xl p-5" data-kategori="etkinlik" data-aos="fade-up" data-aos-delay="80">
                     <div class="flex justify-between items-start mb-2">
                         <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-800">Etkinlik</span>
                         <span class="text-xs text-gray-400">1 Nis 2025</span>
@@ -166,11 +181,11 @@
     <!-- BLOG -->
     <section id="blog" class="py-20 bg-gray-100 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">Blog Yazılarımız</h2>
-            <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded"></div>
+            <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Blog Yazılarımız</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded" data-aos="fade-up" data-aos-delay="100"></div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <a href="https://medium.com/huawei-student-developers-turkiye/yapay-zeka-destekli-%C3%A7arp%C4%B1%C5%9Fma-%C3%B6nleme-sistemleri-4a81446edc89" target="_blank" class="no-underline">
+                <a href="https://medium.com/huawei-student-developers-turkiye/yapay-zeka-destekli-%C3%A7arp%C4%B1%C5%9Fma-%C3%B6nleme-sistemleri-4a81446edc89" target="_blank" class="no-underline" data-aos="fade-up" data-aos-delay="0">
                     <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                         <div class="h-44 overflow-hidden">
                             <img src="araba.webp" alt="Blog Görseli" class="w-full h-full object-cover">
@@ -187,7 +202,7 @@
                     </div>
                 </a>
 
-                <a href="https://medium.com/huawei-student-developers-turkiye/veri-g%C3%BCn%C3%BCm%C3%BCz%C3%BCn-yeni-petrol%C3%BC-m%C3%BC-9c7ae066b750" target="_blank" class="no-underline">
+                <a href="https://medium.com/huawei-student-developers-turkiye/veri-g%C3%BCn%C3%BCm%C3%BCz%C3%BCn-yeni-petrol%C3%BC-m%C3%BC-9c7ae066b750" target="_blank" class="no-underline" data-aos="fade-up" data-aos-delay="100">
                     <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                         <div class="h-44 overflow-hidden">
                             <img src="Veri-Analisti-Nedir-ve-Neden-Onemlidir.webp" alt="Blog Görseli" class="w-full h-full object-cover">
@@ -204,7 +219,7 @@
                     </div>
                 </a>
 
-                <a href="https://medium.com/huawei-student-developers-turkiye/dijital-sadele%C5%9Fme-teknoloji-%C3%A7a%C4%9F%C4%B1nda-daha-az-ile-daha-fazla-ya%C5%9Famak-ec46fe17692e" target="_blank" class="no-underline">
+                <a href="https://medium.com/huawei-student-developers-turkiye/dijital-sadele%C5%9Fme-teknoloji-%C3%A7a%C4%9F%C4%B1nda-daha-az-ile-daha-fazla-ya%C5%9Famak-ec46fe17692e" target="_blank" class="no-underline" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                         <div class="h-44 overflow-hidden">
                             <img src="dijitallesme-nedir-ana-gorseli-1024x683.webp" alt="Blog Görseli" class="w-full h-full object-cover">
@@ -221,7 +236,7 @@
                     </div>
                 </a>
 
-                <a href="https://medium.com/huawei-student-developers-turkiye/yapay-zek%C3%A2n%C4%B1n-oyun-geli%C5%9Ftirmeye-olan-etkileri-31601865e190" target="_blank" class="no-underline">
+                <a href="https://medium.com/huawei-student-developers-turkiye/yapay-zek%C3%A2n%C4%B1n-oyun-geli%C5%9Ftirmeye-olan-etkileri-31601865e190" target="_blank" class="no-underline" data-aos="fade-up" data-aos-delay="300">
                     <div class="blog-kart bg-white rounded-2xl overflow-hidden border border-blue-100 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                         <div class="h-44 overflow-hidden">
                             <img src="yapay-zeka-oyun-gelistirme.jpg" alt="Blog Görseli" class="w-full h-full object-cover">
@@ -245,12 +260,12 @@
     <!-- ETKİNLİK FOTOĞRAFLARI -->
     <section id="etkinlik-fotograflari" class="py-20 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">Etkinlik Fotoğrafları</h2>
-            <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded"></div>
+            <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Etkinlik Fotoğrafları</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded" data-aos="fade-up" data-aos-delay="100"></div>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <img src="etkinlik1.jpg" alt="Etkinlik 1" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih">
-                <img src="etkinlik2.jpg" alt="Etkinlik 2" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih">
-                <img src="etkinlik3.jpg" alt="Etkinlik 3" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih">
+                <img src="etkinlik1.jpg" alt="Etkinlik 1" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih" data-aos="zoom-in" data-aos-delay="0">
+                <img src="etkinlik2.jpg" alt="Etkinlik 2" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih" data-aos="zoom-in" data-aos-delay="100">
+                <img src="etkinlik3.jpg" alt="Etkinlik 3" class="lightbox-trigger w-full rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="Etkinlik Adı - Tarih" data-aos="zoom-in" data-aos-delay="200">
             </div>
         </div>
     </section>
@@ -258,12 +273,12 @@
     <!-- HAKKIMIZDA -->
     <section id="hakkimizda" class="py-20 bg-gray-100 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">Hakkımızda</h2>
-            <div class="w-12 h-1 bg-blue-800 mx-auto mb-16 rounded"></div>
+            <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Hakkımızda</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-16 rounded" data-aos="fade-up" data-aos-delay="100"></div>
             <div class="flex flex-col lg:flex-row items-center gap-12">
 
                 <!-- Sol: Metin -->
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="100">
                     <h3 class="text-2xl font-bold text-blue-900 mb-4">Biz Kimiz?</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">HSD Gelişim, üniversite öğrencilerini teknoloji, yazılım ve inovasyon alanlarında bir araya getiren aktif bir topluluktur. Birlikte öğrenir, üretir ve büyürüz.</p>
                     <p class="text-gray-600 leading-relaxed mb-6">Misyonumuz; üyelerimize mentorluk, etkinlik ve projeler aracılığıyla kariyer yollarında rehberlik etmek ve güçlü bir öğrenci ekosistemi oluşturmaktır.</p>
@@ -277,21 +292,21 @@
                 </div>
 
                 <!-- Sağ: İstatistikler -->
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
-                        <span class="block text-4xl font-extrabold text-blue-800">150+</span>
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform" data-aos="zoom-in" data-aos-delay="250">
+                        <span class="stat-sayi-anim block text-4xl font-extrabold text-blue-800">150+</span>
                         <span class="text-gray-500 text-sm mt-1 block">Üye</span>
                     </div>
-                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
-                        <span class="block text-4xl font-extrabold text-blue-800">30+</span>
+                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform" data-aos="zoom-in" data-aos-delay="350">
+                        <span class="stat-sayi-anim block text-4xl font-extrabold text-blue-800">30+</span>
                         <span class="text-gray-500 text-sm mt-1 block">Etkinlik</span>
                     </div>
-                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
-                        <span class="block text-4xl font-extrabold text-blue-800">20+</span>
+                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform" data-aos="zoom-in" data-aos-delay="450">
+                        <span class="stat-sayi-anim block text-4xl font-extrabold text-blue-800">20+</span>
                         <span class="text-gray-500 text-sm mt-1 block">Proje</span>
                     </div>
-                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform">
-                        <span class="block text-4xl font-extrabold text-blue-800">5+</span>
+                    <div class="bg-white border-2 border-blue-100 rounded-2xl p-8 text-center hover:-translate-y-1 transition-transform" data-aos="zoom-in" data-aos-delay="550">
+                        <span class="stat-sayi-anim block text-4xl font-extrabold text-blue-800">5+</span>
                         <span class="text-gray-500 text-sm mt-1 block">Yıl</span>
                     </div>
                 </div>
@@ -299,23 +314,18 @@
         </div>
     </section>
 
-
-      </div>
-    </div>
-  </section>
-
     <!-- KOMİTELER -->
     <section id="komiteler" class="py-20 bg-white dark:bg-[#0d1117] transition-colors duration-300 scroll-mt-20">
-    <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">Komitelerimiz</h2>
-        <div class="w-12 h-1 bg-blue-800 mx-auto mb-6 rounded"></div>
-        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
-            HSD Gelişim'i ayakta tutan 5 aktif komitemizle tanışın.
-        </p>
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white" data-aos="fade-up">Komitelerimiz</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-6 rounded" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8 flex-grow" data-aos="fade-up" data-aos-delay="150">
+                HSD Gelişim'i ayakta tutan 5 aktif komitemizle tanışın.
+            </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="0">
                     <div class="flex items-center gap-5 mb-7 relative z-10">
                         <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl bg-pink-500/10 text-pink-500 group-hover:scale-110 transition-transform duration-300">📱</div>
                         <h3 class="text-gray-900 dark:text-white text-2xl font-bold leading-snug">Sosyal Medya <br> & İçerik</h3>
@@ -330,7 +340,7 @@
                     </div>
                 </div>
 
-            <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300">
+                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center gap-5 mb-7">
                         <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl bg-green-500/10 text-green-500 group-hover:scale-110 transition-transform duration-300">🎪</div>
                         <h3 class="text-gray-900 dark:text-white text-2xl font-bold leading-snug">Organizasyon <br> & Etkinlik</h3>
@@ -345,7 +355,7 @@
                     </div>
                 </div>
 
-            <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300">
+                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center gap-5 mb-7">
                         <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl bg-yellow-500/10 text-yellow-500 group-hover:scale-110 transition-transform duration-300">🤝</div>
                         <h3 class="text-gray-900 dark:text-white text-2xl font-bold leading-snug">Sponsorluk <br> & Dış İlişkiler</h3>
@@ -360,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1 transition-all duration-300">
+                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
                     <div class="flex items-center gap-5 mb-7">
                         <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl bg-indigo-500/10 text-indigo-400 group-hover:scale-110 transition-transform duration-300">💻</div>
                         <h3 class="text-gray-900 dark:text-white text-2xl font-bold leading-snug">Teknik Ekip <br> & Ar-Ge</h3>
@@ -375,7 +385,7 @@
                     </div>
                 </div>
 
-                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-teal-500/10 hover:-translate-y-1 transition-all duration-300">
+                <div class="group bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col shadow-lg hover:shadow-2xl hover:shadow-teal-500/10 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center gap-5 mb-7">
                         <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl bg-teal-500/10 text-teal-400 group-hover:scale-110 transition-transform duration-300">✍️</div>
                         <h3 class="text-gray-900 dark:text-white text-2xl font-bold leading-snug">Medium İçerik <br> & Üretim</h3>
@@ -390,24 +400,24 @@
                     </div>
                 </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- EKİBİMİZ -->
     <section id="ekibimiz" class="py-20 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-2">Ekibimiz</h2>
-            <p class="text-center text-gray-400 mb-4">Topluluğumuzu yöneten harika insanlar</p>
-            <div class="w-12 h-1 bg-blue-800 mx-auto mb-16 rounded"></div>
+            <h2 class="text-3xl font-bold text-center mb-2" data-aos="fade-up">Ekibimiz</h2>
+            <p class="text-center text-gray-400 mb-4" data-aos="fade-up" data-aos-delay="80">Topluluğumuzu yöneten harika insanlar</p>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-16 rounded" data-aos="fade-up" data-aos-delay="120"></div>
 
             <!-- ELÇİ -->
-            <div class="flex items-center gap-4 mb-8">
+            <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
                 <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200"></div>
                 <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Elçi</span>
                 <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200"></div>
             </div>
-            <div class="flex justify-center mb-12">
+            <div class="flex justify-center mb-12" data-aos="zoom-in" data-aos-delay="100">
                 <div class="bg-white border-2 border-yellow-400 rounded-2xl p-8 text-center w-64 relative shadow-yellow-100 shadow-lg hover:-translate-y-2 transition-transform">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
                     <div class="w-24 h-24 rounded-full border-4 border-yellow-400 overflow-hidden mx-auto mb-4">
@@ -419,13 +429,13 @@
             </div>
 
             <!-- ELÇİ YARDIMCILARI -->
-            <div class="flex items-center gap-4 mb-8">
+            <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
                 <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200"></div>
                 <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Elçi Yardımcıları</span>
                 <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200"></div>
             </div>
             <div class="flex justify-center gap-6 mb-12 flex-wrap">
-                <div class="bg-white border border-blue-200 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform">
+                <div class="bg-white border border-blue-200 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="0">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
                     <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
                         <img src="furkanerden.jpeg" alt="Elçi Yardımcısı" class="w-full h-full object-cover">
@@ -433,7 +443,7 @@
                     <h5 class="font-bold text-blue-900 text-sm">Furkan Erden</h5>
                     <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Elçi Yardımcısı</span>
                 </div>
-                <div class="bg-white border border-blue-200 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform">
+                <div class="bg-white border border-blue-200 rounded-2xl p-6 text-center w-52 relative hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="150">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">★</div>
                     <div class="w-20 h-20 rounded-full border-3 border-blue-800 overflow-hidden mx-auto mb-4">
                         <img src="irmak.jpeg" alt="Elçi Yardımcısı" class="w-full h-full object-cover">
@@ -444,13 +454,13 @@
             </div>
 
             <!-- KULÜP BAŞKANLARI -->
-            <div class="flex items-center gap-4 mb-8">
+            <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
                 <div class="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200"></div>
                 <span class="bg-green-100 text-green-800 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Kulüp Başkanları</span>
                 <div class="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200"></div>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="0">
                     <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
                         <img src="alp.jpeg" alt="Başkan 1" class="w-full h-full object-cover">
                     </div>
@@ -458,7 +468,7 @@
                     <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Web Sitesi Proje Lideri</span>
                     <span class="block text-gray-400 text-xs italic mt-2">Kulüp 1</span>
                 </div>
-                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="80">
                     <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
                         <img src="eren.jpeg" alt="Başkan 2" class="w-full h-full object-cover">
                     </div>
@@ -466,7 +476,7 @@
                     <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Oyun Proje Lideri</span>
                     <span class="block text-gray-400 text-xs italic mt-2">Kulüp 2</span>
                 </div>
-                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="160">
                     <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
                         <img src="yaren.jpeg" alt="Başkan 3" class="w-full h-full object-cover">
                     </div>
@@ -474,7 +484,7 @@
                     <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mt-2 inline-block">Sosyal Medya Lideri</span>
                     <span class="block text-gray-400 text-xs italic mt-2">Kulüp 3</span>
                 </div>
-                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform">
+                <div class="bg-white border border-teal-200 rounded-2xl p-6 text-center hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="240">
                     <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
                         <img src="damla.jpeg" alt="Başkan 4" class="w-full h-full object-cover">
                     </div>
@@ -486,133 +496,150 @@
         </div>
     </section>
 
-
     <!-- İLETİŞİM -->
-<section id="iletisim" class="py-20 bg-gray-100 dark:bg-[#0d1117] scroll-mt-20">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">İletişim</h2>
-    <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded"></div>
+    <section id="iletisim" class="py-20 bg-gray-100 dark:bg-[#0d1117] scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white" data-aos="fade-up">İletişim</h2>
+            <div class="w-12 h-1 bg-blue-800 mx-auto mb-12 rounded" data-aos="fade-up" data-aos-delay="100"></div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-      <!-- Sol: Bilgi Kartı -->
-      <div class="bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col gap-5">
-        <h3 class="text-gray-900 dark:text-white text-xl font-bold mb-2">Bize Ulaşın</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">
-          Topluluğumuzu takip etmek veya iletişime geçmek için aşağıdaki kanalları kullanabilirsiniz.
-        </p>
+                <!-- Sol: Bilgi Kartı -->
+                <div class="bg-white dark:bg-[#1a1e23] border border-gray-200 dark:border-gray-800 rounded-3xl p-8 flex flex-col gap-5" data-aos="fade-right" data-aos-delay="150">
+                    <h3 class="text-gray-900 dark:text-white text-xl font-bold mb-2">Bize Ulaşın</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Topluluğumuzu takip etmek veya iletişime geçmek için aşağıdaki kanalları kullanabilirsiniz.
+                    </p>
 
-        <!-- E-posta -->
-        <a href="mailto:hsd.iguu@gmail.com"
-           class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition group">
-          <span class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/>
-            </svg>
-          </span>
-          <span class="text-sm">Gmail / HSD İGÜ</span>
-        </a>
+                    <a href="mailto:hsd.iguu@gmail.com"
+                       class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition group">
+                        <span class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/>
+                            </svg>
+                        </span>
+                        <span class="text-sm">Gmail / HSD İGÜ</span>
+                    </a>
 
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/company/hsdigu/" target="_blank"
-           class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition group">
-          <span class="w-10 h-10 rounded-xl bg-blue-700/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-700/20 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.984V9h3.102v1.561h.043c.432-.818 1.487-1.681 3.059-1.681 3.271 0 3.874 2.152 3.874 4.951v6.621zM5.337 7.433a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM6.959 20.452H3.713V9h3.246v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </span>
-          <span class="text-sm">LinkedIn / HSD İGÜ</span>
-        </a>
+                    <a href="https://www.linkedin.com/company/hsdigu/" target="_blank"
+                       class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition group">
+                        <span class="w-10 h-10 rounded-xl bg-blue-700/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-700/20 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.984V9h3.102v1.561h.043c.432-.818 1.487-1.681 3.059-1.681 3.271 0 3.874 2.152 3.874 4.951v6.621zM5.337 7.433a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM6.959 20.452H3.713V9h3.246v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </span>
+                        <span class="text-sm">LinkedIn / HSD İGÜ</span>
+                    </a>
 
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/hsdgelisim/" target="_blank"
-           class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition group">
-          <span class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:bg-pink-500/20 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </span>
-          <span class="text-sm">Instagram / HSD İGÜ</span>
-        </a>
+                    <a href="https://www.instagram.com/hsdgelisim/" target="_blank"
+                       class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition group">
+                        <span class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:bg-pink-500/20 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </span>
+                        <span class="text-sm">Instagram / HSD İGÜ</span>
+                    </a>
 
-        <!-- Konum -->
-        <div class="flex flex-col gap-3">
-        <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
-            <span class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.083 3.204-4.511 3.204-7.327a8.5 8.5 0 10-17 0c0 2.816 1.26 5.244 3.204 7.327a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
-            </svg>
-            </span>
-            <span class="text-sm">İstanbul Gelişim Üniversitesi, Avcılar</span>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
+                            <span class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.083 3.204-4.511 3.204-7.327a8.5 8.5 0 10-17 0c0 2.816 1.26 5.244 3.204 7.327a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                                </svg>
+                            </span>
+                            <span class="text-sm">İstanbul Gelişim Üniversitesi, Avcılar</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                            <iframe
+                                src="https://maps.google.com/maps?q=İstanbul+Gelişim+Üniversitesi,+Avcılar,+İstanbul&output=embed&z=16"
+                                width="100%"
+                                height="500"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ: Form -->
+                <div class="bg-white dark:bg-[#1a1e23] rounded-3xl p-8" data-aos="fade-left" data-aos-delay="150">
+                    <form id="iletisimForm" novalidate>
+                        <div class="mb-5">
+                            <label for="adSoyad" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Ad Soyad</label>
+                            <input type="text" id="adSoyad" placeholder="Adınız Soyadınız"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                            <div class="text-red-500 text-sm mt-1 hidden" id="adSoyadHata"></div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">E-posta Adresi</label>
+                            <input type="email" id="email" placeholder="ornek@mail.com"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                            <div class="text-red-500 text-sm mt-1 hidden" id="emailHata"></div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="konu" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Konu Başlığı</label>
+                            <input type="text" id="konu" placeholder="Konu başlığınız"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
+                            <div class="text-red-500 text-sm mt-1 hidden" id="konuHata"></div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="mesaj" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Mesaj</label>
+                            <textarea id="mesaj" rows="5" placeholder="Mesajınızı buraya yazın..."
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"></textarea>
+                            <div class="text-red-500 text-sm mt-1 hidden" id="mesajHata"></div>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition">Gönder</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-        <!-- Google Maps Embed -->
-        <div class="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
-            <iframe
-            src="https://maps.google.com/maps?q=İstanbul+Gelişim+Üniversitesi,+Avcılar,+İstanbul&output=embed&z=16"
-            width="100%"
-            height="500"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-        </div>
-    </div>    
+    </section>
 
-      <!-- Sağ: Form -->
-      <div class="bg-white dark:bg-[#1a1e23] rounded-3xl p-8">
-        <form id="iletisimForm" novalidate>
-          <div class="mb-5">
-            <label for="adSoyad" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Ad Soyad</label>
-            <input type="text" id="adSoyad" placeholder="Adınız Soyadınız"
-              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
-            <div class="text-red-500 text-sm mt-1 hidden" id="adSoyadHata"></div>
-          </div>
-          <div class="mb-5">
-            <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">E-posta Adresi</label>
-            <input type="email" id="email" placeholder="ornek@mail.com"
-              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
-            <div class="text-red-500 text-sm mt-1 hidden" id="emailHata"></div>
-          </div>
-          <div class="mb-5">
-            <label for="konu" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Konu Başlığı</label>
-            <input type="text" id="konu" placeholder="Konu başlığınız"
-              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition">
-            <div class="text-red-500 text-sm mt-1 hidden" id="konuHata"></div>
-          </div>
-          <div class="mb-5">
-            <label for="mesaj" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Mesaj</label>
-            <textarea id="mesaj" rows="5" placeholder="Mesajınızı buraya yazın..."
-              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"></textarea>
-            <div class="text-red-500 text-sm mt-1 hidden" id="mesajHata"></div>
-          </div>
-          <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition">Gönder</button>
-        </form>
-      </div>
+</main>
 
-    </div>
-  </div>
-</section>
+<!-- ================================================
+     KÜTÜPHANELER (sırayla yükle)
+     ================================================ -->
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Lottie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+<!-- Vanta (mevcut) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 
 <script>
-        window._vantaEffect = VANTA.NET({
-            el: "#vanta-hero",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x3b82f6,        // mavi nokta/çizgi rengi
-            backgroundColor: 0x04067c, // lacivert arka plan
-            points: 15,
-            maxDistance: 24,
-            spacing: 16
-        });
-    </script>
-    <script src="script.js"></script>
-</body>
+    window._vantaEffect = VANTA.NET({
+        el: "#vanta-hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x3b82f6,
+        backgroundColor: 0x04067c,
+        points: 15,
+        maxDistance: 24,
+        spacing: 16
+    });
+</script>
+
+<!-- Ana script (AOS + GSAP + Lottie init burada) -->
+<script src="script.js"></script>
 
 <div class="ambient-glow"></div>
+</body>
+</html>
