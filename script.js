@@ -1,5 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // ===== AOS BAŞLAT =====
+    AOS.init({
+        duration: 750,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+    });
+
+
+    // ===== GSAP: STICKY NAV SHRINK =====
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.create({
+        start: "top -60",
+        onEnter:     () => document.querySelector('nav').classList.add('nav-scrolled'),
+        onLeaveBack: () => document.querySelector('nav').classList.remove('nav-scrolled')
+    });
+
+
+    // ===== GSAP: İSTATİSTİK SAYAÇ ANİMASYONU =====
+    document.querySelectorAll('.stat-sayi-anim').forEach(el => {
+        const text    = el.textContent.trim();
+        const hasPlus = text.includes('+');
+        const num     = parseInt(text);
+        if (isNaN(num)) return;
+
+        const obj = { val: 0 };
+        gsap.to(obj, {
+            val: num,
+            duration: 2,
+            ease: "power2.out",
+            onUpdate: function () {
+                el.textContent = Math.ceil(obj.val) + (hasPlus ? '+' : '');
+            },
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                once: true
+            }
+        });
+    });
+
+
+    // ===== LOTTIE: HERO ANİMASYONU =====
+    const lottieContainer = document.getElementById('lottie-hero');
+    if (lottieContainer) {
+        lottie.loadAnimation({
+            container: lottieContainer,
+            renderer:  'svg',
+            loop:      true,
+            autoplay:  true,
+            // lottiefiles.com'dan farklı bir animasyon URL'si yapıştırabilirsin
+            path: 'https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json'
+        });
+    }
+
+
     // ===== DARK MODE =====
     const darkBtn       = document.getElementById("darkModeBtn");
     const darkBtnMobile = document.getElementById("darkModeBtnMobile");
@@ -12,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (darkBtnMobile) darkBtnMobile.textContent = icon;
         localStorage.setItem("tema", isDark ? "dark" : "light");
 
-        // Vanta efekti varsa arka plan rengini güncelle
         if (window._vantaEffect) {
             window._vantaEffect.setOptions({
                 backgroundColor: isDark ? 0x0d1117 : 0x04067c
@@ -20,42 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Sayfa yüklenince kaydedilen temayı uygula
     applyTheme(localStorage.getItem("tema") === "dark");
 
-    if (darkBtn) {
-        darkBtn.addEventListener("click", () => {
-            applyTheme(!html.classList.contains("dark"));
-        });
-    }
-
-    if (darkBtnMobile) {
-        darkBtnMobile.addEventListener("click", () => {
-            applyTheme(!html.classList.contains("dark"));
-        });
-    }
+    if (darkBtn)       darkBtn.addEventListener("click",       () => applyTheme(!html.classList.contains("dark")));
+    if (darkBtnMobile) darkBtnMobile.addEventListener("click", () => applyTheme(!html.classList.contains("dark")));
 
 
     // ===== MOBİL MENÜ =====
-    // Hem ana sayfa (#menuBtn → #mobileMenu / Tailwind .hidden)
-    // hem hakkımızda sayfası (#menuBtn → #menu / CSS .active) desteklenir.
     const menuBtn    = document.getElementById("menuToggle") || document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu"); // Ana sayfa menüsü
-    const menu       = document.getElementById("menu");       // Hakkımızda sayfası menüsü
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menu       = document.getElementById("menu");
 
     if (menuBtn) {
         menuBtn.addEventListener("click", function () {
-            // Ana sayfa: Tailwind hidden class ile aç/kapat
-            if (mobileMenu) {
-                mobileMenu.classList.toggle("hidden");
-            }
-            // Hakkımızda sayfası: CSS .active class ile aç/kapat
-            if (menu) {
-                menu.classList.toggle("active");
-            }
+            if (mobileMenu) mobileMenu.classList.toggle("hidden");
+            if (menu)       menu.classList.toggle("active");
         });
 
-        // Mobil menü linklerine tıklanınca menüyü kapat
         if (mobileMenu) {
             mobileMenu.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
@@ -78,10 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.stopPropagation();
             dropdownMenu.classList.toggle("hidden");
         });
-
-        document.addEventListener("click", () => {
-            dropdownMenu.classList.add("hidden");
-        });
+        document.addEventListener("click", () => dropdownMenu.classList.add("hidden"));
     }
 
 
@@ -120,14 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function formKontrol() {
-        let gecerli   = true;
+        let gecerli       = true;
         const alanlar     = ["adSoyad", "email", "konu", "mesaj"];
         const emailKurali = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         alanlar.forEach(id => {
             const input = document.getElementById(id);
             const hata  = document.getElementById(id + "Hata");
-            if (!input) return; // Alan sayfada yoksa atla
+            if (!input) return;
 
             const deger = input.value.trim();
 
@@ -140,10 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 input.classList.remove("border-red-500");
                 input.classList.add("border-green-500");
-                if (hata) {
-                    hata.textContent = "";
-                    hata.classList.add("hidden");
-                }
+                if (hata) { hata.textContent = ""; hata.classList.add("hidden"); }
             }
         });
 
@@ -154,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (input) input.classList.remove("border-green-500");
             });
 
-            // Başarı mesajı göster (varsa inline banner, yoksa alert)
             const basari = document.getElementById("form-basari");
             if (basari) {
                 basari.classList.remove("hidden");
@@ -168,10 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function hataGoster(input, hata, mesaj) {
         input.classList.add("border-red-500");
         input.classList.remove("border-gray-300");
-        if (hata) {
-            hata.textContent = mesaj;
-            hata.classList.remove("hidden");
-        }
+        if (hata) { hata.textContent = mesaj; hata.classList.remove("hidden"); }
     }
 
 
@@ -222,9 +249,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("keydown", (e) => {
         if (!overlay || !overlay.classList.contains("aktif")) return;
-        if (e.key === "Escape")     lightboxKapat();
-        if (e.key === "ArrowRight") { aktifIndex = (aktifIndex + 1) % triggers.length; lightboxAc(aktifIndex); }
-        if (e.key === "ArrowLeft")  { aktifIndex = (aktifIndex - 1 + triggers.length) % triggers.length; lightboxAc(aktifIndex); }
+        if (e.key === "Escape")      lightboxKapat();
+        if (e.key === "ArrowRight")  { aktifIndex = (aktifIndex + 1) % triggers.length; lightboxAc(aktifIndex); }
+        if (e.key === "ArrowLeft")   { aktifIndex = (aktifIndex - 1 + triggers.length) % triggers.length; lightboxAc(aktifIndex); }
     });
 
 });
