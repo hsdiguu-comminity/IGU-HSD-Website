@@ -14,4 +14,4 @@
  * olacak şekilde eşleştiğinden emin olun; aksi hâlde tarayıcı
  * istekleri engeller.
  */
-window.HSD_API_URL = 'http://localhost:3000';
+window.HSD_API_URL = 'https://hsd-backend.onrender.com';
