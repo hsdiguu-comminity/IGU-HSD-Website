@@ -1,0 +1,62 @@
+# Netlify yapılandırması
+#
+# Site saf statiktir: derleme adımı yoktur, dosyalar deponun kökünden
+# doğrudan yayınlanır.
+#
+# ÖNEMLİ: Yayına almadan önce js/config.js içindeki API adresini
+# backend'in gerçek adresiyle değiştirin. Aksi hâlde site localhost'a
+# istek atar ve duyurular, komiteler, ekibimiz gibi bölümler boş kalır.
+
+[build]
+  publish = "."
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Güvenlik başlıkları
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Görseller ve statik varlıklar uzun süre önbelleklenebilir
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# JS ve CSS güncellendiğinde kullanıcı eski sürümde kalmasın
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Bulunamayan adreslerde ana sayfaya dön
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
