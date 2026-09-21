@@ -25,6 +25,7 @@
   }
 
   var BASE_URL = resolveBaseUrl().replace(/\/+$/, '');
+  var MEDIA_URL = (global.HSD_MEDIA_URL || BASE_URL).replace(/\/+$/, '');
 
   /**
    * Backend tüm cevapları { success, data, message } zarfıyla döndürür.
@@ -92,7 +93,7 @@
     mediaUrl: function (yol) {
       if (!yol) return '';
       if (/^https?:\/\//.test(yol)) return yol;
-      if (yol.charAt(0) === '/') return BASE_URL + yol;
+      if (yol.charAt(0) === '/') return MEDIA_URL + yol;
       return yol;
     },
 
