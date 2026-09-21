@@ -157,11 +157,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const prevBtn     = document.getElementById("lightbox-prev");
     const nextBtn     = document.getElementById("lightbox-next");
 
-    const triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
+    // Görseller açılışta bir kez toplanmıyor: etkinlik fotoğrafları
+    // backend'den sonradan ekleniyor, liste her seferinde yeniden okunur.
+    let triggers = [];
     let aktifIndex = 0;
 
+    function tetikleyicileriTopla() {
+        triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
+    }
+
     function lightboxAc(index) {
-        if (!triggers[index]) return;
+        if (!triggers[index] || !overlay) return;
         aktifIndex = index;
         lightboxImg.src     = triggers[index].src;
         caption.textContent = triggers[index].dataset.caption || "";
@@ -174,7 +180,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.style.overflow = "";
     }
 
-    triggers.forEach((img, i) => img.addEventListener("click", () => lightboxAc(i)));
+    // Olay yetkilendirme: sonradan eklenen görseller de yakalanır
+    document.addEventListener("click", (e) => {
+        const hedef = e.target.closest(".lightbox-trigger");
+        if (!hedef) return;
+        tetikleyicileriTopla();
+        lightboxAc(triggers.indexOf(hedef));
+    });
 
     if (closeBtn) closeBtn.addEventListener("click", lightboxKapat);
 
