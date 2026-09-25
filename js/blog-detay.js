@@ -49,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var kapak = document.createElement('img');
         kapak.className = 'w-full h-56 md:h-72 object-cover rounded-2xl mb-6';
         kapak.alt = yazi.title;
-        kapak.src = HsdApi.mediaUrl(yazi.coverImage);
-        kapak.addEventListener('error', function () { kapak.remove(); });
+        HsdApi.gorseliYukle(kapak, HsdApi.mediaUrl(yazi.coverImage), function () {
+          kapak.remove();
+        });
         var baslikEl = document.getElementById('baslik');
         baslikEl.parentNode.insertBefore(kapak, baslikEl);
       }

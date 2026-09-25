@@ -106,10 +106,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var gorsel = document.createElement('img');
     gorsel.className = 'w-full h-full object-cover';
     gorsel.alt = kisi.fullName;
-    gorsel.src = kisi.photoUrl ? HsdApi.mediaUrl(kisi.photoUrl) : yedekAvatar(kisi.fullName);
-    gorsel.addEventListener('error', function () {
+    if (kisi.photoUrl) {
+      HsdApi.gorseliYukle(gorsel, HsdApi.mediaUrl(kisi.photoUrl), function () {
+        gorsel.src = yedekAvatar(kisi.fullName);
+      });
+    } else {
       gorsel.src = yedekAvatar(kisi.fullName);
-    });
+    }
     cerceve.appendChild(gorsel);
 
     var ad = document.createElement('h5');

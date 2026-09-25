@@ -51,9 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var gorsel = document.createElement('img');
       gorsel.className = 'lightbox-trigger w-full h-full object-cover cursor-zoom-in';
       gorsel.alt = etkinlik.title;
-      gorsel.src = HsdApi.mediaUrl(etkinlik.coverImage);
       gorsel.setAttribute('data-caption', etkinlik.title + ' - ' + tarihFormatla(etkinlik.startDate));
-      gorsel.addEventListener('error', function () {
+      HsdApi.gorseliYukle(gorsel, HsdApi.mediaUrl(etkinlik.coverImage), function () {
         gorselKap.remove();
       });
 
@@ -119,14 +118,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function galeriGorseli(url, altyazi, sira) {
     var img = document.createElement('img');
-    img.src = HsdApi.mediaUrl(url);
     img.alt = altyazi;
     img.className =
       'lightbox-trigger w-full h-56 rounded-xl object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300';
     img.setAttribute('data-caption', altyazi);
     img.setAttribute('data-aos', 'zoom-in');
     img.setAttribute('data-aos-delay', String((sira % 3) * 100));
-    img.addEventListener('error', function () {
+    HsdApi.gorseliYukle(img, HsdApi.mediaUrl(url), function () {
       img.remove();
     });
     return img;

@@ -67,8 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var gorsel = document.createElement('img');
     gorsel.className = 'w-full h-full object-cover';
     gorsel.alt = uye.fullName;
-    gorsel.src = avatarUrl(uye.fullName, uye.photoUrl, renk);
-    gorsel.addEventListener('error', function () {
+    HsdApi.gorseliYukle(gorsel, avatarUrl(uye.fullName, uye.photoUrl, renk), function () {
       gorsel.src = avatarUrl(uye.fullName, null, renk);
     });
     cerceve.appendChild(gorsel);
@@ -128,8 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var gorsel = document.createElement('img');
     gorsel.className = 'w-full h-full object-cover';
     gorsel.alt = uye.fullName;
-    gorsel.src = avatarUrl(uye.fullName, uye.photoUrl, renk);
-    gorsel.addEventListener('error', function () {
+    HsdApi.gorseliYukle(gorsel, avatarUrl(uye.fullName, uye.photoUrl, renk), function () {
       gorsel.src = avatarUrl(uye.fullName, null, renk);
     });
     cerceve.appendChild(gorsel);

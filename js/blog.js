@@ -50,8 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var gorsel = document.createElement('img');
       gorsel.className = 'w-full h-full object-cover';
       gorsel.alt = yazi.title;
-      gorsel.src = HsdApi.mediaUrl(yazi.coverImage);
-      gorsel.addEventListener('error', function () {
+      HsdApi.gorseliYukle(gorsel, HsdApi.mediaUrl(yazi.coverImage), function () {
         gorselKap.remove();
       });
 

@@ -27,6 +27,23 @@
   var BASE_URL = resolveBaseUrl().replace(/\/+$/, '');
   var MEDIA_URL = (global.HSD_MEDIA_URL || BASE_URL).replace(/\/+$/, '');
 
+  // Sunucu ücretsiz planda çalıştığı için kimse siteye girmediğinde uykuya
+  // geçiyor ve ilk istek sunucu uyanana kadar (yarım dakikayı bulabilir)
+  // başarısız olabiliyor. Okuma istekleri ve görseller bu yüzden birkaç kez
+  // yeniden denenir; ziyaretçi bir şey yapmadan sayfa kendiliğinden dolar.
+  var YENIDEN_DENEME_GECIKMELERI = [2000, 5000, 10000, 15000];
+
+  function bekle(ms) {
+    return new Promise(function (devam) {
+      setTimeout(devam, ms);
+    });
+  }
+
+  // Sunucu uykudayken ağ hatası ya da geçit hatası (502/503/504) döner.
+  function uykuHatasiMi(status) {
+    return status === 502 || status === 503 || status === 504;
+  }
+
   /**
    * Backend tüm cevapları { success, data, message } zarfıyla döndürür.
    * Burada zarf açılır, hata durumunda anlamlı bir Error fırlatılır.
@@ -49,11 +66,30 @@
       config.headers['Authorization'] = 'Bearer ' + token;
     }
 
+    // Yalnızca okuma istekleri yeniden denenir: form gönderimi tekrarlanırsa
+    // aynı kayıt iki kez oluşabilir.
+    var tekrarlanabilir = config.method === 'GET';
     var response;
-    try {
-      response = await fetch(BASE_URL + path, config);
-    } catch (networkError) {
-      throw new Error('Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edin.');
+
+    for (var deneme = 0; ; deneme++) {
+      var agHatasi = false;
+
+      try {
+        response = await fetch(BASE_URL + path, config);
+      } catch (networkError) {
+        agHatasi = true;
+      }
+
+      if (!agHatasi && !uykuHatasiMi(response.status)) break;
+
+      if (!tekrarlanabilir || deneme >= YENIDEN_DENEME_GECIKMELERI.length) {
+        if (agHatasi) {
+          throw new Error('Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edin.');
+        }
+        break;
+      }
+
+      await bekle(YENIDEN_DENEME_GECIKMELERI[deneme]);
     }
 
     var payload = null;
@@ -95,6 +131,33 @@
       if (/^https?:\/\//.test(yol)) return yol;
       if (yol.charAt(0) === '/') return MEDIA_URL + yol;
       return yol;
+    },
+
+    /**
+     * Görseli yükler; sunucu uykudan uyanırken yüklenemezse birkaç kez
+     * yeniden dener. Tüm denemeler başarısız olursa sonCare çağrılır
+     * (ör. görseli kaldırmak ya da yedek avatara düşmek).
+     */
+    gorseliYukle: function (img, url, sonCare) {
+      var deneme = 0;
+
+      img.addEventListener('error', function () {
+        if (deneme >= YENIDEN_DENEME_GECIKMELERI.length) {
+          if (sonCare) sonCare();
+          return;
+        }
+
+        var gecikme = YENIDEN_DENEME_GECIKMELERI[deneme];
+        deneme++;
+
+        setTimeout(function () {
+          // Tarayıcı aynı adresi hatalı olarak önbelleğe aldığı için
+          // adrese her denemede farklı bir parametre eklenir.
+          img.src = url + (url.indexOf('?') === -1 ? '?' : '&') + 'deneme=' + deneme;
+        }, gecikme);
+      });
+
+      img.src = url;
     },
 
     getToken: function () {
