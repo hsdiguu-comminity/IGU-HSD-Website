@@ -1,0 +1,37 @@
+# Backend Render'in ucretsiz planinda calisiyor ve 15 dakika istek gelmezse
+# uykuya geciyor. Uyanmasi yarim dakikayi bulabildiginden, o aralikta siteye
+# giren ziyaretci etkinlikleri ve fotograflari goremiyordu.
+#
+# Bu is 10 dakikada bir backend'e kucuk bir istek atarak sunucuyu uyanik tutar.
+#
+# Notlar:
+#  - Zamanlanmis isler yalnizca deponun varsayilan dalindan (main) calisir.
+#  - GitHub yogun oldugunda zamanlamayi birkac dakika geciktirebilir; site
+#    yine de kendini toparlar, cunku istekler ve gorseller otomatik yeniden
+#    deneniyor (js/api.js).
+#  - Depoda 60 gun boyunca hic hareket olmazsa GitHub zamanlanmis isleri
+#    devre disi birakir. O durumda Actions sekmesinden yeniden etkinlestirin.
+name: Sunucuyu uyanik tut
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+# Ust uste binen calismalari engeller.
+concurrency:
+  group: sunucuyu-uyanik-tut
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Backend'i uyandir
+        run: |
+          # Uyanma uzun surebilir: 90 sn bekle, gerekirse birkac kez dene.
+          curl --silent --show-error --fail \
+               --max-time 90 --retry 3 --retry-delay 15 --retry-all-errors \
+               --output /dev/null --write-out 'HTTP %{http_code} - %{time_total}s\n' \
+               https://hsd-backend.onrender.com/
