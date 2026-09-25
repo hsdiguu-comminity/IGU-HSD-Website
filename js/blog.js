@@ -34,7 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function kartOlustur(yazi) {
     var sarmal = document.createElement('a');
-    sarmal.href = 'blog-detay.html?id=' + encodeURIComponent(yazi.id);
+
+    // Yazılar Medium'da yayımlanıyor: adres verilmişse kart oraya, verilmemişse
+    // sitedeki detay sayfasına gider.
+    if (yazi.externalUrl) {
+      sarmal.href = yazi.externalUrl;
+      sarmal.target = '_blank';
+      // noopener: açılan sayfa bu sekmeye erişemez
+      sarmal.rel = 'noopener noreferrer';
+    } else {
+      sarmal.href = 'blog-detay.html?id=' + encodeURIComponent(yazi.id);
+    }
+
     sarmal.className = 'no-underline';
     sarmal.setAttribute('data-aos', 'fade-up');
 
@@ -83,11 +94,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var yazar = document.createElement('span');
     yazar.className = 'text-gray-400 text-xs';
-    yazar.textContent = '✍️' + ((yazi.author && yazi.author.fullName) || 'HSD Gelişim');
+    yazar.textContent =
+      '✍️' + (yazi.authorName || (yazi.author && yazi.author.fullName) || 'HSD Gelişim');
 
     var bilgi = document.createElement('span');
     bilgi.className = 'text-blue-700 text-xs font-semibold';
-    bilgi.textContent = (yazi.readingTime || 1) + ' dk okuma →';
+    bilgi.textContent = yazi.externalUrl
+      ? 'Daha Fazla Oku →'
+      : (yazi.readingTime || 1) + ' dk okuma →';
 
     alt.appendChild(yazar);
     alt.appendChild(bilgi);
@@ -96,13 +110,18 @@ document.addEventListener('DOMContentLoaded', function () {
     govde.appendChild(paragraf);
     govde.appendChild(alt);
 
-    // Tarih ve görüntülenme, kartın altında küçük bir satır olarak
-    var meta = document.createElement('div');
-    meta.className = 'px-5 pb-4 text-gray-400 text-xs';
-    meta.textContent = tarihFormatla(yazi.createdAt) + ' · ' + (yazi.viewCount || 0) + ' görüntülenme';
-
     kart.appendChild(govde);
-    kart.appendChild(meta);
+
+    // Tarih ve görüntülenme yalnızca sitede duran yazılar için anlamlı;
+    // Medium'a giden kartlarda gösterilmez.
+    if (!yazi.externalUrl) {
+      var meta = document.createElement('div');
+      meta.className = 'px-5 pb-4 text-gray-400 text-xs';
+      meta.textContent =
+        tarihFormatla(yazi.createdAt) + ' · ' + (yazi.viewCount || 0) + ' görüntülenme';
+      kart.appendChild(meta);
+    }
+
     sarmal.appendChild(kart);
 
     return sarmal;
@@ -112,10 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(function (yazilar) {
       if (!Array.isArray(yazilar) || yazilar.length === 0) return;
 
-      // Backend yazıları en başa eklenir; mevcut Medium kartları korunur.
-      var ilkCocuk = grid.firstChild;
+      // Yazılar artık panelden yönetiliyor: backend cevap verdiğinde sayfadaki
+      // elle yazılmış kartlar kaldırılır, yoksa aynı yazı iki kez görünür.
+      // Backend boşsa ya da erişilemezse eski kartlar olduğu gibi kalır.
+      grid.innerHTML = '';
+
       yazilar.forEach(function (yazi) {
-        grid.insertBefore(kartOlustur(yazi), ilkCocuk);
+        grid.appendChild(kartOlustur(yazi));
       });
 
       if (typeof AOS !== 'undefined') AOS.refresh();
