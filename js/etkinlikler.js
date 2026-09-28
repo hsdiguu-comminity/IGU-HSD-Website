@@ -141,6 +141,12 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(function (etkinlikler) {
       if (!Array.isArray(etkinlikler) || etkinlikler.length === 0) return;
 
+      // Sayfadaki yedek içerik (sunucuya ulaşılamadığında görünen sabit
+      // kartlar ve fotoğraflar) kaldırılır; yoksa aynı etkinlik iki kez çıkar.
+      document.querySelectorAll('[data-yedek="etkinlik"]').forEach(function (dugum) {
+        dugum.remove();
+      });
+
       // En yeni etkinlik en başta
       etkinlikler.sort(function (a, b) {
         return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
