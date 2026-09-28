@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!bolum || typeof HsdApi === 'undefined') return;
 
   var kap = bolum.querySelector('.max-w-7xl');
-  var galeri = bolum.querySelector('.grid');
+  // Fotoğraf ızgarası kimliğiyle bulunur: bölümde yedek kartların ızgarası da
+  // var, sadece ".grid" aransa yanlış öğe seçilirdi.
+  var galeri = bolum.querySelector('#etkinlik-galerisi') || bolum.querySelector('.grid');
   if (!kap || !galeri) return;
 
   function tarihFormatla(iso) {
