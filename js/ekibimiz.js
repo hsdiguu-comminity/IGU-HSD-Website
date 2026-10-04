@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       anahtar: 'KULUP_BASKANI',
-      etiket: 'Kulüp Başkanları',
+      etiket: 'Komite Başkanları',
       rozetSinif: 'bg-green-100 text-green-800',
       kartSinif:
         'bg-white border border-teal-200 rounded-2xl p-6 text-center w-52 hover:-translate-y-2 transition-transform',
