@@ -188,6 +188,15 @@
       return request('/blog/' + encodeURIComponent(id));
     },
 
+    // --- Bülten yazıları ---
+    getNewsletters: function () {
+      return request('/newsletter');
+    },
+
+    getNewsletter: function (id) {
+      return request('/newsletter/' + encodeURIComponent(id));
+    },
+
     subscribeNewsletter: function (email) {
       return request('/blog/newsletter/subscribe', {
         method: 'POST',

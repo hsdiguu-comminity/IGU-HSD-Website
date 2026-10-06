@@ -1,0 +1,182 @@
+/* HSD Bülten — liste ve okuma sayfaları
+   Dar okuma sütunu, serif gövde, sans-serif başlıklar. HSD laciverti
+   vurgu rengi; ilk paragrafta büyük harf. */
+
+:root {
+    --navy: #04067c;
+    --blue: #0028a5;
+    --accent: #0d6efd;
+    --b-metin: #1f2937;
+    --b-soluk: #6b7280;
+    --b-baslik: #0b0f2e;
+    --b-cizgi: #e5e7eb;
+    --b-zemin: #ffffff;
+    --b-kart: #ffffff;
+}
+
+html.dark {
+    --b-metin: #d1d5db;
+    --b-soluk: #9ca3af;
+    --b-baslik: #f3f4f6;
+    --b-cizgi: #262b33;
+    --b-zemin: #0d1117;
+    --b-kart: #161b22;
+}
+
+* { box-sizing: border-box; }
+
+body[data-bulten-sayfa] {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--b-zemin);
+    color: var(--b-metin);
+    transition: background 0.3s, color 0.3s;
+}
+
+.serif { font-family: 'Source Serif 4', Georgia, serif; }
+
+
+/* --- YAZI --- */
+
+.bulten-sutun { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+.bulten-genis { max-width: 900px; margin-left: auto; margin-right: auto; }
+
+.bulten-baslik {
+    font-size: clamp(2rem, 5vw, 2.85rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.028em;
+    color: var(--b-baslik);
+}
+
+.bulten-alt {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+    line-height: 1.45;
+    color: var(--b-soluk);
+}
+
+.bulten-avatar {
+    width: 44px; height: 44px; border-radius: 9999px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--navy), var(--accent));
+    color: #fff; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.bulten-govde {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.78;
+    color: var(--b-metin);
+    word-wrap: break-word;
+}
+
+.bulten-govde p { margin: 0 0 1.5em; }
+
+/* İlk paragrafın ilk harfi büyük */
+.bulten-govde > p:first-of-type::first-letter {
+    float: left;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 3.6em;
+    line-height: 0.85;
+    margin: 0.06em 0.12em 0 0;
+    color: var(--blue);
+}
+html.dark .bulten-govde > p:first-of-type::first-letter { color: #60a5fa; }
+
+.bulten-govde h2,
+.bulten-govde h3 {
+    font-family: 'Inter', sans-serif;
+    color: var(--b-baslik);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+.bulten-govde h2 { font-size: 1.7rem; font-weight: 800; margin: 2em 0 0.55em; }
+.bulten-govde h3 { font-size: 1.3rem; font-weight: 700; margin: 1.6em 0 0.45em; }
+
+.bulten-govde a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+.bulten-govde a:hover { color: var(--accent); }
+
+.bulten-govde blockquote {
+    margin: 1.8em 0;
+    padding: 0.2em 0 0.2em 1.4em;
+    border-left: 3px solid var(--blue);
+    font-style: italic;
+    font-size: 1.32rem;
+    color: var(--b-baslik);
+}
+html.dark .bulten-govde blockquote { border-left-color: #60a5fa; }
+
+.bulten-govde ul, .bulten-govde ol { margin: 0 0 1.5em; padding-left: 1.5em; }
+.bulten-govde ul { list-style: disc; }
+.bulten-govde ol { list-style: decimal; }
+.bulten-govde li { margin-bottom: 0.45em; padding-left: 0.25em; }
+
+.bulten-govde pre {
+    margin: 1.8em 0;
+    padding: 1.1em 1.3em;
+    border-radius: 12px;
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+.bulten-govde hr {
+    border: 0; height: 1.5em; margin: 2.8em 0; text-align: center; overflow: visible;
+}
+.bulten-govde hr::after {
+    content: '· · ·'; letter-spacing: 0.8em; color: var(--b-soluk); font-size: 1.4rem;
+}
+
+/* Yazı içindeki görseller sütundan biraz taşar */
+.bulten-govde figure { margin: 2.4em -40px; }
+.bulten-govde figure img {
+    display: block; width: 100%; height: auto; border-radius: 10px;
+}
+.bulten-govde figcaption {
+    margin-top: 0.75em; padding: 0 40px;
+    font-family: 'Inter', sans-serif; font-size: 0.85rem;
+    text-align: center; color: var(--b-soluk);
+}
+@media (max-width: 760px) {
+    .bulten-govde figure { margin-left: -20px; margin-right: -20px; }
+    .bulten-govde figure img { border-radius: 0; }
+    .bulten-govde { font-size: 1.12rem; }
+}
+
+
+/* --- LİSTE --- */
+
+.bulten-satir { border-bottom: 1px solid var(--b-cizgi); }
+.bulten-satir:hover .bulten-satir-baslik { color: var(--blue); }
+html.dark .bulten-satir:hover .bulten-satir-baslik { color: #60a5fa; }
+.bulten-satir-baslik { color: var(--b-baslik); transition: color 0.2s; }
+
+.bulten-kart {
+    background: var(--b-kart);
+    border: 1px solid var(--b-cizgi);
+}
+
+.satir-kes-2 {
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.satir-kes-3 {
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.iskelet {
+    background: linear-gradient(90deg, var(--b-cizgi) 0%, transparent 50%, var(--b-cizgi) 100%);
+    background-size: 200% 100%;
+    animation: iskelet 1.4s ease-in-out infinite;
+    border-radius: 8px;
+}
+@keyframes iskelet { from { background-position: 200% 0; } to { background-position: -200% 0; } }
